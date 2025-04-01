@@ -16,6 +16,8 @@ public class Promotor {
 	public String direccion="";
 	public String fechanacimiento ="";
 	Conexion conector = new Conexion();
+	Connection conexionBD = null;
+	PreparedStatement pst = null;
 	
 	public Conexion getConector() {
 		return conector;
@@ -78,8 +80,6 @@ public class Promotor {
 		this.fechanacimiento = fechanacimiento;
 	}
 	public void create(String nombres, String apellidos, String correopersonal, int numerotelefonico, String tipodocumento, int documento, String correocorp, String direccion, String fechanacimiento) {
-		Connection conexionBD = null;
-		PreparedStatement pst = null;
 		String script = " INSERT INTO tblpromotor (nombres, apellidos, correopersonal, numerotelefonico, tipodocumento, documento, correocorp, direccion, fechanacimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conexionBD = conector.conectarBD();
@@ -95,6 +95,21 @@ public class Promotor {
 			pst.setString(9, fechanacimiento);
 			pst.executeUpdate();
 			JOptionPane.showConfirmDialog(null, "Registro con exito");
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
+	public void delete(int idpromotor) {
+		String script = "delete from tblpromotor where idpromotor = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setInt(1, idpromotor);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila eliminada");
+			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}

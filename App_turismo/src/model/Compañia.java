@@ -14,6 +14,8 @@ public class Compañia {
 	public String correo="";
 	public String web="";
 	Conexion conector = new Conexion();
+	Connection conexionBD = null;
+	PreparedStatement pst = null;
 	
 	public Conexion getConector() {
 		return conector;
@@ -58,8 +60,6 @@ public class Compañia {
 		this.web = web;
 	}
 	public void create(int telefono, String direccion, String fechacreacion, String razonsocial, String correo, String web) {
-		Connection conexionBD = null;
-		PreparedStatement pst = null;
 		String script = " INSERT INTO tblcompañia (telefono, direccion, fechacreacion, razonsocial, correo, web) VALUES (?, ?, ?, ?, ?, ?)";
 		try {
 			conexionBD = conector.conectarBD();
@@ -76,4 +76,19 @@ public class Compañia {
 			System.out.println(errorconexion.getMessage());
 		}
 	}
+	public void delete(int idcompañia) {
+		String script = "delete from tblcompañia where idcompañia = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setInt(1, idcompañia);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila eliminada");
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+}
 }

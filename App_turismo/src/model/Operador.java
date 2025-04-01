@@ -17,6 +17,8 @@ public class Operador {
 	public String direccion="";
 	public int idvehiculo=0;
 	Conexion conector = new Conexion();
+	Connection conexionBD = null;
+	PreparedStatement pst = null;
 	
 	public String getNombres() {
 		return nombres;
@@ -74,8 +76,6 @@ public class Operador {
 	}
 	
 	public void datosOperador(String nombres, String apellidos, String correoelectronico, int numerotelefonico, String tipodocumento, int documento, String direccion, int idvehiculo) {
-		Connection conexionBD = null;
-		PreparedStatement pst = null;
 		String script = "INSERT INTO tbloperador (nombres, apellidos, correoelectronico, numerotelefonico, tipodocumento, documento, direccion, idvehiculo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conexionBD = conector.conectarBD();
@@ -94,4 +94,19 @@ public class Operador {
 			System.out.println(errorconexion.getMessage());
 		}
 	}
+	public void delete(int idoperador) {
+		String script = "delete from tbloperador where id = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setInt(1, idoperador);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila eliminada");
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+}
 }

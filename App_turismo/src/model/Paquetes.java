@@ -23,6 +23,8 @@ public class Paquetes {
 	public int idpromotor=0;
 
 	Conexion conector = new Conexion();
+	Connection conexionBD = null;
+	PreparedStatement pst = null;
 	
 	public Conexion getConector() {
 		return conector;
@@ -110,8 +112,6 @@ public class Paquetes {
 	}
 	public void datosPaquetes(int codigoventa, int iddestino, int idorigen, String fechaventa, String horaventa, String fechaejecucion, String horasalida, String observacion, String precio, int idagencia,
 		int idvehiculo, int idclientes, int idpromotor) {
-		Connection conexionBD = null;
-		PreparedStatement pst = null;
 		String script = "INSERT INTO tblpaquetes (codigoventa, iddestino, idorigen, fechaventa, horaventa, fechaejecucion, horasalida, observacion, precio, idagencia, idvehiculo, idclientes, idpromotor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conexionBD = conector.conectarBD();
@@ -135,4 +135,20 @@ public class Paquetes {
 			System.out.println(errorconexion.getMessage());
 		}
 	}
+	public void delete(int idpaquete) {
+		String script = "delete from tblpaquetes where idpaquete = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setInt(1, idpaquete);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila eliminada");
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
+
 }

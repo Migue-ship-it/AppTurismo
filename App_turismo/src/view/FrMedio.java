@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class FrMedio extends JFrame {
 
@@ -21,7 +23,8 @@ public class FrMedio extends JFrame {
 	private JTextField textNombre;
 	private JTextField textObservacion;
 	private JTextField textIDTipo;
-
+	Medio cr = new Medio();
+	private JTextField textIDMedio;
 	/**
 	 * Launch the application.
 	 */
@@ -42,43 +45,45 @@ public class FrMedio extends JFrame {
 	 * Create the frame.
 	 */
 	public FrMedio() {
+		setTitle("MEDIO DE COMUNICACION");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\9004661_envelope_mail_email_letter_icon.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 499, 362);
 		MedioPane = new JPanel();
 		MedioPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(MedioPane);
 		MedioPane.setLayout(null);
 		
-		JButton btnGuardar = new JButton("Guardar");
+		JButton btnGuardar = new JButton("");
+		btnGuardar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\326688_floppy_save_guardar_icon.png"));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
-				Medio cr = new Medio();
 				cr.datosMedio(textNombre.getText(), textObservacion.getText(), Integer.parseInt(textIDTipo.getText()));
 				textNombre.setText("");
 				textObservacion.setText("");
 				textIDTipo.setText("");
 			}
 		});
-		btnGuardar.setBounds(181, 215, 89, 23);
+		btnGuardar.setBounds(181, 246, 56, 52);
 		MedioPane.add(btnGuardar);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(84, 42, 46, 14);
+		lblNombre.setBounds(25, 64, 46, 14);
 		MedioPane.add(lblNombre);
 		
 		JLabel lblObservacion = new JLabel("Observacion");
-		lblObservacion.setBounds(84, 67, 75, 14);
+		lblObservacion.setBounds(25, 108, 75, 14);
 		MedioPane.add(lblObservacion);
 		
 		textNombre = new JTextField();
 		textNombre.setColumns(10);
-		textNombre.setBounds(181, 39, 187, 20);
+		textNombre.setBounds(181, 74, 228, 20);
 		MedioPane.add(textNombre);
 		
 		textObservacion = new JTextField();
 		textObservacion.setColumns(10);
-		textObservacion.setBounds(181, 67, 187, 102);
+		textObservacion.setBounds(181, 105, 228, 90);
 		MedioPane.add(textObservacion);
 		
 		JLabel lblMedio = new JLabel("DATOS MEDIO");
@@ -86,12 +91,32 @@ public class FrMedio extends JFrame {
 		MedioPane.add(lblMedio);
 		
 		JLabel lblidTipo = new JLabel("ID Tipo del medio");
-		lblidTipo.setBounds(84, 187, 87, 14);
+		lblidTipo.setBounds(25, 209, 87, 14);
 		MedioPane.add(lblidTipo);
 		
 		textIDTipo = new JTextField();
 		textIDTipo.setColumns(10);
-		textIDTipo.setBounds(181, 184, 187, 20);
+		textIDTipo.setBounds(181, 206, 228, 20);
 		MedioPane.add(textIDTipo);
+		
+		JButton btnBorrar = new JButton("");
+		btnBorrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evento) {
+				cr.delete(Integer.parseInt(textIDMedio.getText()));
+				textIDMedio.setText("");
+			}
+		});
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
+		btnBorrar.setBounds(276, 246, 56, 52);
+		MedioPane.add(btnBorrar);
+		
+		JLabel lblidMedio = new JLabel("ID Medio");
+		lblidMedio.setBounds(25, 39, 87, 14);
+		MedioPane.add(lblidMedio);
+		
+		textIDMedio = new JTextField();
+		textIDMedio.setColumns(10);
+		textIDMedio.setBounds(181, 36, 228, 20);
+		MedioPane.add(textIDMedio);
 	}
 }

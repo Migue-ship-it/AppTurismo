@@ -16,6 +16,8 @@ public class Vehiculos {
 	public String categoria="";
 	public int idtipo=0;
 	Conexion conector = new Conexion();
+	Connection conexionBD = null;
+	PreparedStatement pst = null;
 	
 	public Conexion getConector() {
 		return conector;
@@ -67,8 +69,6 @@ public class Vehiculos {
 	}
 	
 	public void datosVehiculos(String matricula, String marca, int puestos, String modelo, int numeromotor, String categoria, int idtipo) {
-		Connection conexionBD = null;
-		PreparedStatement pst = null;
 		String script = "INSERT INTO tblvehiculos (matricula, marca, puestos, modelo, numeromotor, categoria, idtipo) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conexionBD = conector.conectarBD();
@@ -82,6 +82,21 @@ public class Vehiculos {
 			pst.setInt(7, idtipo);
 			pst.executeUpdate();
 			JOptionPane.showConfirmDialog(null, "Registro con exito");
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
+	public void delete(int idvehiculo) {
+		String script = "delete from tblvehiculos where idvehiculo = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setInt(1, idvehiculo);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila eliminada");
+			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
