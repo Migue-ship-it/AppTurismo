@@ -79,7 +79,7 @@ public class FrVehiculos extends JFrame {
 				textIDTipoVehiculo.setText("");
 			}
 		});
-		btnGuardar.setBounds(202, 303, 65, 49);
+		btnGuardar.setBounds(218, 303, 65, 49);
 		vehiculosPane.add(btnGuardar);
 		
 		JLabel lblMatricula = new JLabel("matricula");
@@ -99,7 +99,7 @@ public class FrVehiculos extends JFrame {
 		vehiculosPane.add(lblModelo);
 		
 		JLabel lblNoMotor = new JLabel("Numero de motores");
-		lblNoMotor.setBounds(40, 194, 94, 14);
+		lblNoMotor.setBounds(40, 194, 121, 14);
 		vehiculosPane.add(lblNoMotor);
 		
 		JLabel lblCategoria = new JLabel("categoria");
@@ -137,7 +137,7 @@ public class FrVehiculos extends JFrame {
 		vehiculosPane.add(textCategoria);
 		
 		lblVehiculos = new JLabel("DATOS VEHICULOS");
-		lblVehiculos.setBounds(146, 21, 104, 14);
+		lblVehiculos.setBounds(146, 21, 121, 14);
 		vehiculosPane.add(lblVehiculos);
 		
 		textIDTipoVehiculo = new JTextField();
@@ -157,7 +157,7 @@ public class FrVehiculos extends JFrame {
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
-		btnBorrar.setBounds(107, 303, 65, 49);
+		btnBorrar.setBounds(127, 303, 65, 49);
 		vehiculosPane.add(btnBorrar);
 		
 		textIDVehiculo = new JTextField();

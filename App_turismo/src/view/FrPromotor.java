@@ -57,7 +57,7 @@ public class FrPromotor extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\7791667_necktie_businessman_suit_manager_employee_icon.png"));
 		setTitle("PROMOTOR");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 512, 310);
+		setBounds(100, 100, 550, 315);
 		promotorPane = new JPanel();
 		promotorPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -93,7 +93,7 @@ public class FrPromotor extends JFrame {
 		promotorPane.add(lblApellidos);
 		
 		JLabel lblCorreoPersonal = new JLabel("correo personal");
-		lblCorreoPersonal.setBounds(17, 157, 86, 14);
+		lblCorreoPersonal.setBounds(17, 157, 98, 14);
 		promotorPane.add(lblCorreoPersonal);
 		
 		JLabel lblNoTelefono = new JLabel("No. telefono");
@@ -101,23 +101,23 @@ public class FrPromotor extends JFrame {
 		promotorPane.add(lblNoTelefono);
 		
 		JLabel lblTipoDocumento = new JLabel("tipo documento");
-		lblTipoDocumento.setBounds(235, 70, 86, 14);
+		lblTipoDocumento.setBounds(247, 70, 98, 14);
 		promotorPane.add(lblTipoDocumento);
 		
 		JLabel lblNoDocumento = new JLabel("No. documento");
-		lblNoDocumento.setBounds(235, 95, 73, 14);
+		lblNoDocumento.setBounds(247, 95, 98, 14);
 		promotorPane.add(lblNoDocumento);
 		
 		JLabel lblCorreoCorporativo = new JLabel("correo corporativo");
-		lblCorreoCorporativo.setBounds(235, 132, 89, 14);
+		lblCorreoCorporativo.setBounds(247, 132, 115, 14);
 		promotorPane.add(lblCorreoCorporativo);
 		
 		JLabel lblDireccion = new JLabel("direccion");
-		lblDireccion.setBounds(235, 157, 73, 14);
+		lblDireccion.setBounds(247, 157, 73, 14);
 		promotorPane.add(lblDireccion);
 		
 		JLabel lblFechaNacimiento = new JLabel("fecha de nacimiento");
-		lblFechaNacimiento.setBounds(235, 186, 98, 20);
+		lblFechaNacimiento.setBounds(247, 186, 115, 20);
 		promotorPane.add(lblFechaNacimiento);
 		
 		textNombres = new JTextField();
@@ -132,12 +132,12 @@ public class FrPromotor extends JFrame {
 		
 		textDireccion = new JTextField();
 		textDireccion.setColumns(10);
-		textDireccion.setBounds(331, 154, 141, 20);
+		textDireccion.setBounds(369, 157, 141, 20);
 		promotorPane.add(textDireccion);
 		
 		textFechaNacimiento = new JTextField();
 		textFechaNacimiento.setColumns(10);
-		textFechaNacimiento.setBounds(341, 186, 131, 20);
+		textFechaNacimiento.setBounds(369, 186, 141, 20);
 		promotorPane.add(textFechaNacimiento);
 		
 		textCorreoPersonal = new JTextField();
@@ -152,17 +152,17 @@ public class FrPromotor extends JFrame {
 		
 		textTipoDocumento = new JTextField();
 		textTipoDocumento.setColumns(10);
-		textTipoDocumento.setBounds(331, 67, 141, 20);
+		textTipoDocumento.setBounds(369, 67, 141, 20);
 		promotorPane.add(textTipoDocumento);
 		
 		textNoDocumento = new JTextField();
 		textNoDocumento.setColumns(10);
-		textNoDocumento.setBounds(331, 92, 141, 20);
+		textNoDocumento.setBounds(369, 95, 141, 20);
 		promotorPane.add(textNoDocumento);
 		
 		textCorreoCorporativo = new JTextField();
 		textCorreoCorporativo.setColumns(10);
-		textCorreoCorporativo.setBounds(331, 129, 141, 20);
+		textCorreoCorporativo.setBounds(369, 129, 141, 20);
 		promotorPane.add(textCorreoCorporativo);
 		
 		lblPromotor = new JLabel("DATOS PROMOTOR");
@@ -181,7 +181,7 @@ public class FrPromotor extends JFrame {
 		promotorPane.add(btnBorrar);
 		
 		lblidPromotor = new JLabel("ID del promotor");
-		lblidPromotor.setBounds(17, 70, 73, 14);
+		lblidPromotor.setBounds(17, 70, 98, 14);
 		promotorPane.add(lblidPromotor);
 		
 		textIDPromotor = new JTextField();

@@ -59,7 +59,7 @@ public class FrTiposMedio extends JFrame {
 		TiposMedioPane.add(lblNombre);
 		
 		JLabel lblObservacion = new JLabel("Observacion");
-		lblObservacion.setBounds(42, 115, 68, 14);
+		lblObservacion.setBounds(42, 115, 78, 14);
 		TiposMedioPane.add(lblObservacion);
 		
 		textObservacion = new JTextField();

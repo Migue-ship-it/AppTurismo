@@ -114,19 +114,19 @@ public class FrPaquetes extends JFrame {
 		paquetesPane.add(lblFechaDeVenta);
 		
 		JLabel lblHoraDeVenta = new JLabel("hora de venta");
-		lblHoraDeVenta.setBounds(33, 171, 68, 14);
+		lblHoraDeVenta.setBounds(33, 171, 91, 14);
 		paquetesPane.add(lblHoraDeVenta);
 		
 		JLabel lblFechaDeEjecucion = new JLabel("fecha de ejecucion");
-		lblFechaDeEjecucion.setBounds(33, 196, 91, 14);
+		lblFechaDeEjecucion.setBounds(33, 196, 115, 14);
 		paquetesPane.add(lblFechaDeEjecucion);
 		
 		JLabel lblHoraDeSalida = new JLabel("hora de salida");
-		lblHoraDeSalida.setBounds(33, 229, 68, 14);
+		lblHoraDeSalida.setBounds(33, 229, 91, 14);
 		paquetesPane.add(lblHoraDeSalida);
 		
 		JLabel lblObservacion = new JLabel("observacion");
-		lblObservacion.setBounds(234, 35, 68, 14);
+		lblObservacion.setBounds(253, 35, 80, 14);
 		paquetesPane.add(lblObservacion);
 		
 		JLabel lblcodigoventa = new JLabel("codigo de venta");
@@ -134,92 +134,92 @@ public class FrPaquetes extends JFrame {
 		paquetesPane.add(lblcodigoventa);
 		
 		JLabel lblprecio = new JLabel("precio $");
-		lblprecio.setBounds(234, 113, 68, 14);
+		lblprecio.setBounds(253, 113, 68, 14);
 		paquetesPane.add(lblprecio);
 		
 		textIDdestino = new JTextField();
 		textIDdestino.setColumns(10);
-		textIDdestino.setBounds(138, 82, 86, 20);
+		textIDdestino.setBounds(148, 85, 86, 20);
 		paquetesPane.add(textIDdestino);
 		
 		textIDorigen = new JTextField();
 		textIDorigen.setColumns(10);
-		textIDorigen.setBounds(138, 110, 86, 20);
+		textIDorigen.setBounds(148, 110, 86, 20);
 		paquetesPane.add(textIDorigen);
 		
 		textFechaVenta = new JTextField();
 		textFechaVenta.setColumns(10);
-		textFechaVenta.setBounds(138, 138, 86, 20);
+		textFechaVenta.setBounds(148, 143, 86, 20);
 		paquetesPane.add(textFechaVenta);
 		
 		textPrecio = new JTextField();
 		textPrecio.setColumns(10);
-		textPrecio.setBounds(312, 107, 86, 20);
+		textPrecio.setBounds(332, 110, 115, 20);
 		paquetesPane.add(textPrecio);
 		
 		textHoraVenta = new JTextField();
 		textHoraVenta.setColumns(10);
-		textHoraVenta.setBounds(138, 165, 86, 20);
+		textHoraVenta.setBounds(148, 168, 86, 20);
 		paquetesPane.add(textHoraVenta);
 		
 		textFechaEjecucion = new JTextField();
 		textFechaEjecucion.setColumns(10);
-		textFechaEjecucion.setBounds(138, 196, 86, 20);
+		textFechaEjecucion.setBounds(148, 193, 86, 20);
 		paquetesPane.add(textFechaEjecucion);
 		
 		textHoraSalida = new JTextField();
 		textHoraSalida.setColumns(10);
-		textHoraSalida.setBounds(138, 226, 86, 20);
+		textHoraSalida.setBounds(148, 226, 86, 20);
 		paquetesPane.add(textHoraSalida);
 		
 		textObservacion = new JTextField();
 		textObservacion.setColumns(10);
-		textObservacion.setBounds(312, 35, 115, 64);
+		textObservacion.setBounds(332, 35, 115, 64);
 		paquetesPane.add(textObservacion);
 		
 		textCodigoVenta = new JTextField();
 		textCodigoVenta.setColumns(10);
-		textCodigoVenta.setBounds(138, 57, 86, 20);
+		textCodigoVenta.setBounds(148, 60, 86, 20);
 		paquetesPane.add(textCodigoVenta);
 		
 		lblPaquetes = new JLabel("DATOS PAQUETES");
-		lblPaquetes.setBounds(174, 11, 98, 14);
+		lblPaquetes.setBounds(174, 11, 115, 14);
 		paquetesPane.add(lblPaquetes);
 		
 		lblIdAgencia = new JLabel("ID Agencia");
-		lblIdAgencia.setBounds(234, 141, 68, 14);
+		lblIdAgencia.setBounds(253, 138, 68, 14);
 		paquetesPane.add(lblIdAgencia);
 		
 		lblIdVehiculo = new JLabel("ID Vehiculo");
-		lblIdVehiculo.setBounds(234, 168, 68, 14);
+		lblIdVehiculo.setBounds(253, 171, 68, 14);
 		paquetesPane.add(lblIdVehiculo);
 		
 		lblIdClientes = new JLabel("ID Clientes");
-		lblIdClientes.setBounds(234, 196, 68, 14);
+		lblIdClientes.setBounds(253, 196, 68, 14);
 		paquetesPane.add(lblIdClientes);
 		
 		lblIdPromotor = new JLabel("ID Promotor");
-		lblIdPromotor.setBounds(234, 229, 68, 14);
+		lblIdPromotor.setBounds(253, 229, 68, 14);
 		paquetesPane.add(lblIdPromotor);
 		
 		textIDAgencia = new JTextField();
 		textIDAgencia.setColumns(10);
-		textIDAgencia.setBounds(312, 138, 86, 20);
+		textIDAgencia.setBounds(332, 138, 86, 20);
 		paquetesPane.add(textIDAgencia);
 		
 		textIDVehiculo = new JTextField();
 		textIDVehiculo.setColumns(10);
-		textIDVehiculo.setBounds(312, 165, 86, 20);
+		textIDVehiculo.setBounds(332, 168, 86, 20);
 		paquetesPane.add(textIDVehiculo);
 		
 		textIDPromotor = new JTextField();
 		textIDPromotor.setColumns(10);
-		textIDPromotor.setBounds(312, 226, 86, 20);
+		textIDPromotor.setBounds(332, 226, 86, 20);
 		paquetesPane.add(textIDPromotor);
 		
 		textIDClientes = new JTextField();
 		textIDClientes.setColumns(10);
-		textIDClientes.setBounds(312, 195, 86, 20);
+		textIDClientes.setBounds(332, 193, 86, 20);
 		paquetesPane.add(textIDClientes);
 		
 		btnGuardar_1 = new JButton("");
@@ -235,7 +235,7 @@ public class FrPaquetes extends JFrame {
 		
 		textIDPaquete = new JTextField();
 		textIDPaquete.setColumns(10);
-		textIDPaquete.setBounds(138, 32, 86, 20);
+		textIDPaquete.setBounds(148, 32, 86, 20);
 		paquetesPane.add(textIDPaquete);
 		
 		lblidPaquete = new JLabel("ID del Paquete");

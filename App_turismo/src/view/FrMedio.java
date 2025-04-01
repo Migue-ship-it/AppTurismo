@@ -69,7 +69,7 @@ public class FrMedio extends JFrame {
 		MedioPane.add(btnGuardar);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(25, 64, 46, 14);
+		lblNombre.setBounds(31, 77, 46, 14);
 		MedioPane.add(lblNombre);
 		
 		JLabel lblObservacion = new JLabel("Observacion");
