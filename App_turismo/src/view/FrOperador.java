@@ -33,6 +33,7 @@ public class FrOperador extends JFrame {
 	private JTextField textIDOperador;
 	private JLabel lblidOperador;
 	Operador cr = new Operador();
+	private JButton btnBuscar;
 	/**
 	 * Launch the application.
 	 */
@@ -177,5 +178,15 @@ public class FrOperador extends JFrame {
 		lblidOperador = new JLabel("ID del operador");
 		lblidOperador.setBounds(25, 61, 103, 14);
 		operadorPane.add(lblidOperador);
+		
+		btnBuscar = new JButton("");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.read(Integer.parseInt(textIDOperador.getText()), textNombres, textApellidos, textCorreo, textNoTelefono, textTipoDocumento, textNoDocumento, textDireccion, textIDVehiculo);
+			}
+		});
+		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
+		btnBuscar.setBounds(310, 209, 65, 49);
+		operadorPane.add(btnBuscar);
 	}
 }

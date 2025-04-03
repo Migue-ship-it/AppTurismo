@@ -34,6 +34,7 @@ public class FrVehiculos extends JFrame {
 	private JTextField textIDVehiculo;
 	private JLabel lblidVehiculo;
 	Vehiculos cr = new Vehiculos();
+	private JButton btnBuscar;
 	/**
 	 * Launch the application.
 	 */
@@ -168,6 +169,16 @@ public class FrVehiculos extends JFrame {
 		lblidVehiculo = new JLabel("ID del vehiculo");
 		lblidVehiculo.setBounds(40, 55, 94, 14);
 		vehiculosPane.add(lblidVehiculo);
+		
+		btnBuscar = new JButton("");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.read(Integer.parseInt(textIDVehiculo.getText()), textMatricula, textMarca, textPuestos, textModelo, textNoMotor, textCategoria, textIDTipoVehiculo);
+			}
+		});
+		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
+		btnBuscar.setBounds(306, 303, 65, 49);
+		vehiculosPane.add(btnBuscar);
 	}
 
 }

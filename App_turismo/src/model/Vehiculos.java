@@ -2,19 +2,22 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controller.Conexion;
 
 public class Vehiculos {
-	public String matricula="";
-	public String marca="";
-	public int puestos=0;
-	public String modelo="";
-	public int numeromotor=0;
-	public String categoria="";
-	public int idtipo=0;
+	public int idvehiculo;
+	public String matricula;
+	public String marca;
+	public int puestos;
+	public String modelo;
+	public int numeromotor;
+	public String categoria;
+	public int idtipo;
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
 	PreparedStatement pst = null;
@@ -67,7 +70,12 @@ public class Vehiculos {
 	public void setIdtipo(int idtipo) {
 		this.idtipo = idtipo;
 	}
-	
+	public int getIdvehiculo() {
+		return idvehiculo;
+	}
+	public void setIdvehiculo(int idvehiculo) {
+		this.idvehiculo = idvehiculo;
+	}
 	public void datosVehiculos(String matricula, String marca, int puestos, String modelo, int numeromotor, String categoria, int idtipo) {
 		String script = "INSERT INTO tblvehiculos (matricula, marca, puestos, modelo, numeromotor, categoria, idtipo) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		try {
@@ -96,6 +104,26 @@ public class Vehiculos {
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showConfirmDialog(null, "fila eliminada");
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
+	public void read(int idvehiculo, JTextField matricula, JTextField marca, JTextField puestos, JTextField modelo, JTextField motores, JTextField categoria, JTextField idtipovehiculo) {
+		String script = "SELECT * FROM tblvehiculos WHERE idvehiculo = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setInt(1, idvehiculo);
+			ResultSet rs = pst.executeQuery(); //almacenamiento temporal
+			while (rs.next()) {
+				matricula.setText(rs.getString(2));
+				marca.setText(rs.getString(3));
+				puestos.setText(rs.getString(4));
+				modelo.setText(rs.getString(5));
+				motores.setText(rs.getString(6));
+				categoria.setText(rs.getString(7));
+				idtipovehiculo.setText(rs.getString(8));
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());

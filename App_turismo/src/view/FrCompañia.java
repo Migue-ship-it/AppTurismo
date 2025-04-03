@@ -153,5 +153,15 @@ public class FrCompañia extends JFrame {
 		textIDCompañia.setColumns(10);
 		textIDCompañia.setBounds(132, 49, 86, 20);
 		CompañiaPane.add(textIDCompañia);
+		
+		JButton btnGuardar_1 = new JButton("");
+		btnGuardar_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.read(Integer.parseInt(textIDCompañia.getText()), textTelefono, textDireccion, textFechaDeCreacion, textRazonSocial, textCorreo, textWeb);
+			}
+		});
+		btnGuardar_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
+		btnGuardar_1.setBounds(290, 222, 65, 51);
+		CompañiaPane.add(btnGuardar_1);
 	}
 }

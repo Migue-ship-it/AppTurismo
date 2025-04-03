@@ -107,6 +107,16 @@ public class FrTiposMedio extends JFrame {
 		JLabel lblidTipoMedio = new JLabel("ID Tipo");
 		lblidTipoMedio.setBounds(47, 56, 46, 14);
 		TiposMedioPane.add(lblidTipoMedio);
+		
+		JButton btnBuscar = new JButton("");
+		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.read(Integer.parseInt(textIDTipoMedio.getText()), textNombre, textObservacion);
+			}
+		});
+		btnBuscar.setBounds(214, 236, 53, 47);
+		TiposMedioPane.add(btnBuscar);
 	}
 
 }

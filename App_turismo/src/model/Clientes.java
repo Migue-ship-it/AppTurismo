@@ -1,24 +1,28 @@
 package model;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controller.Conexion;
 
 public class Clientes {
-	public String tipodocumento="";
-	public int numerodocumento=0;
-	public String nombres="";
-	public String apellidos="";
-	public String direccion="";
-	public String correoelectronico="";
-	public int numerotelefonico=0;
-	public String eps="";
-	public String alergias="";
-	public String fechanacimiento="";
-	public String estadocivil="";
+	public int idclientes;
+	public String tipodocumento;
+	public int numerodocumento;
+	public String nombres;
+	public String apellidos;
+	public String direccion;
+	public String correoelectronico;
+	public int numerotelefonico;
+	public String eps;
+	public String alergias;
+	public String fechanacimiento;
+	public String estadocivil;
 	
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
@@ -96,6 +100,12 @@ public class Clientes {
 	public void setEstadocivil(String estadocivil) {
 		this.estadocivil = estadocivil;
 	}
+	public int getIdclientes() {
+		return idclientes;
+	}
+	public void setIdclientes(int idclientes) {
+		this.idclientes = idclientes;
+	}
 	
 	public void create(String tipodocumento, int numerodocumento, String nombres, String apellidos, String direccion, String correoelectronico, int numerotelefonico, String eps,
 	String alergias, String fechanacimiento, String estadocivil) {
@@ -136,4 +146,32 @@ public class Clientes {
 			System.out.println(errorconexion.getMessage());
 		}
 	}
+	public void read(int idclientes, JTextField tipodocumento, JTextField documento, JTextField nombres, JTextField apellidos, JTextField direccion, JTextField correo, JTextField telefono, JTextField eps,
+			JTextField alergias, JTextField fechanacimiento, JTextField estadocivil) {
+		String script = "SELECT * FROM tblclientes WHERE idclientes = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setInt(1, idclientes);
+			ResultSet rs = pst.executeQuery(); //almacenamiento temporal
+			while (rs.next()) {
+				tipodocumento.setText(rs.getString(2));
+				documento.setText(rs.getString(3));
+				nombres.setText(rs.getString(4));
+				apellidos.setText(rs.getString(5));
+				direccion.setText(rs.getString(6));
+				correo.setText(rs.getString(7));
+				telefono.setText(rs.getString(8));
+				eps.setText(rs.getString(9));
+				alergias.setText(rs.getString(10));
+				fechanacimiento.setText(rs.getString(11));
+				estadocivil.setText(rs.getString(12));
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
+	/*public void update() {
+		
+	}*/
 }

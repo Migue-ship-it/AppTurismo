@@ -88,16 +88,16 @@ public class FrTiposTransporte extends JFrame {
 		lblTiposTransporte.setBounds(118, 26, 172, 14);
 		TiposTransportePane.add(lblTiposTransporte);
 		
-		JButton btnGuardar_1 = new JButton("");
-		btnGuardar_1.addActionListener(new ActionListener() {
+		JButton btnBorrar = new JButton("");
+		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
 				cr.delete(Integer.parseInt(textIDTipoTransporte.getText()));
 				textIDTipoTransporte.setText("");
 			}
 		});
-		btnGuardar_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
-		btnGuardar_1.setBounds(175, 236, 55, 47);
-		TiposTransportePane.add(btnGuardar_1);
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
+		btnBorrar.setBounds(175, 236, 55, 47);
+		TiposTransportePane.add(btnBorrar);
 		
 		textIDTipoTransporte = new JTextField();
 		textIDTipoTransporte.setColumns(10);
@@ -107,5 +107,15 @@ public class FrTiposTransporte extends JFrame {
 		JLabel lblidTipoTransporte = new JLabel("ID Tipo");
 		lblidTipoTransporte.setBounds(42, 51, 101, 14);
 		TiposTransportePane.add(lblidTipoTransporte);
+		
+		JButton btnBuscar = new JButton("");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.read(Integer.parseInt(textIDTipoTransporte.getText()), textNombre, textObservacion);
+			}
+		});
+		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
+		btnBuscar.setBounds(250, 236, 55, 47);
+		TiposTransportePane.add(btnBuscar);
 	}
 }

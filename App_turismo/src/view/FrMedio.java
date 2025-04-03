@@ -118,5 +118,15 @@ public class FrMedio extends JFrame {
 		textIDMedio.setColumns(10);
 		textIDMedio.setBounds(181, 36, 228, 20);
 		MedioPane.add(textIDMedio);
+		
+		JButton btnBuscar = new JButton("");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.read(Integer.parseInt(textIDMedio.getText()), textNombre, textObservacion, textIDTipo);
+			}
+		});
+		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
+		btnBuscar.setBounds(354, 246, 56, 52);
+		MedioPane.add(btnBuscar);
 	}
 }

@@ -137,7 +137,7 @@ public class FrAgencia extends JFrame {
 		
 		JButton btnBorrar = new JButton("");
 		btnBorrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent evento) {
 				cr.delete(Integer.parseInt(textidAgencia.getText()));
 				textidAgencia.setText("");
 			}
@@ -154,5 +154,15 @@ public class FrAgencia extends JFrame {
 		textidAgencia.setColumns(10);
 		textidAgencia.setBounds(94, 46, 171, 20);
 		agenciaPane.add(textidAgencia);
+		
+		JButton btnRead = new JButton("");
+		btnRead.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.read(Integer.parseInt(textidAgencia.getText()), textNombre, textTelefono, textDireccion, textWeb, textCorreo, textidCompañia);
+			}
+		});
+		btnRead.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
+		btnRead.setBounds(347, 145, 52, 50);
+		agenciaPane.add(btnRead);
 	}
 }

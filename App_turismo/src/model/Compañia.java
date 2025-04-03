@@ -2,17 +2,21 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 import controller.Conexion;
 
 public class Compañia {
-	public int telefono=0;
-	public String direccion="";
-	public String fechacreacion="";
-	public String razonsocial="";
-	public String correo="";
-	public String web="";
+	public int idcompañia;
+	public int telefono;
+	public String direccion;
+	public String fechacreacion;
+	public String razonsocial;
+	public String correo;
+	public String web;
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
 	PreparedStatement pst = null;
@@ -59,6 +63,13 @@ public class Compañia {
 	public void setWeb(String web) {
 		this.web = web;
 	}
+	public int getIdcompañia() {
+		return idcompañia;
+	}
+	public void setIdcompañia(int idcompañia) {
+		this.idcompañia = idcompañia;
+	}
+	
 	public void create(int telefono, String direccion, String fechacreacion, String razonsocial, String correo, String web) {
 		String script = " INSERT INTO tblcompañia (telefono, direccion, fechacreacion, razonsocial, correo, web) VALUES (?, ?, ?, ?, ?, ?)";
 		try {
@@ -91,4 +102,27 @@ public class Compañia {
 			System.out.println(errorconexion.getMessage());
 		}
 }
+	public void read(int idcompañia, JTextField telefono, JTextField direccion, JTextField fechacreacion, JTextField razonsocial, JTextField correo, JTextField web) {
+		String script = "SELECT * FROM tblcompañia where idcompañia = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setInt(1, idcompañia);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				telefono.setText(rs.getString(2));
+				direccion.setText(rs.getString(3));
+				fechacreacion.setText(rs.getString(4));
+				razonsocial.setText(rs.getString(5));
+				correo.setText(rs.getString(6));
+				web.setText(rs.getString(7));
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
+	/*public void update() {
+		
+	}*/
+	
 }

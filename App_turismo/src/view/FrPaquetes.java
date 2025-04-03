@@ -44,6 +44,7 @@ public class FrPaquetes extends JFrame {
 	private JTextField textIDPaquete;
 	private JLabel lblidPaquete;
 	Paquetes cr = new Paquetes();
+	private JButton btnBuscar;
 	/**
 	 * Launch the application.
 	 */
@@ -230,7 +231,7 @@ public class FrPaquetes extends JFrame {
 			}
 		});
 		btnGuardar_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
-		btnGuardar_1.setBounds(174, 257, 68, 52);
+		btnGuardar_1.setBounds(148, 257, 68, 52);
 		paquetesPane.add(btnGuardar_1);
 		
 		textIDPaquete = new JTextField();
@@ -241,5 +242,16 @@ public class FrPaquetes extends JFrame {
 		lblidPaquete = new JLabel("ID del Paquete");
 		lblidPaquete.setBounds(33, 35, 91, 14);
 		paquetesPane.add(lblidPaquete);
+		
+		btnBuscar = new JButton("");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.read(Integer.parseInt(textIDPaquete.getText()), textCodigoVenta, textIDdestino, textIDorigen, textFechaVenta, textHoraVenta, textFechaEjecucion, textHoraSalida, textObservacion,
+				textPrecio, textIDAgencia, textIDVehiculo, textIDClientes, textIDPromotor);
+			}
+		});
+		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
+		btnBuscar.setBounds(221, 257, 68, 52);
+		paquetesPane.add(btnBuscar);
 	}
 }

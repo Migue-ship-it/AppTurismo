@@ -2,20 +2,23 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controller.Conexion;
 
 public class Operador {
-	public String nombres="";
-	public String apellidos="";
-	public String correoelectronico="";
-	public int numerotelefonico=0;
-	public String tipodocumento="";
-	public int documento=0;
-	public String direccion="";
-	public int idvehiculo=0;
+	public int idoperador;
+	public String nombres;
+	public String apellidos;
+	public String correoelectronico;
+	public int numerotelefonico;
+	public String tipodocumento;
+	public int documento;
+	public String direccion;
+	public int idvehiculo;
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
 	PreparedStatement pst = null;
@@ -74,6 +77,12 @@ public class Operador {
 	public void setIdvehiculo(int idvehiculo) {
 		this.idvehiculo = idvehiculo;
 	}
+	public int getIdoperador() {
+		return idoperador;
+	}
+	public void setIdoperador(int idoperador) {
+		this.idoperador = idoperador;
+	}
 	
 	public void datosOperador(String nombres, String apellidos, String correoelectronico, int numerotelefonico, String tipodocumento, int documento, String direccion, int idvehiculo) {
 		String script = "INSERT INTO tbloperador (nombres, apellidos, correoelectronico, numerotelefonico, tipodocumento, documento, direccion, idvehiculo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -109,4 +118,26 @@ public class Operador {
 			System.out.println(errorconexion.getMessage());
 		}
 }
+	public void read(int idoperador, JTextField nombres, JTextField apellidos, JTextField correo, JTextField telefono, JTextField tipodocumento, JTextField documento, JTextField direccion, JTextField idvehiculo) {
+		String script = "SELECT * FROM tbloperador WHERE id = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setInt(1, idoperador);
+			ResultSet rs = pst.executeQuery(); //almacenamiento temporal
+			while (rs.next()) {
+				nombres.setText(rs.getString(2));
+				apellidos.setText(rs.getString(3));
+				correo.setText(rs.getString(4));
+				telefono.setText(rs.getString(5));
+				tipodocumento.setText(rs.getString(6));
+				documento.setText(rs.getString(7));
+				direccion.setText(rs.getString(8));
+				idvehiculo.setText(rs.getString(9));
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
+	
 }

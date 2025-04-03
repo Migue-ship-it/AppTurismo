@@ -2,19 +2,21 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controller.Conexion;
 
 public class Agencia {
-	public String nombre = "";
-	public int telefono=0;
-	public String direccion = "";
-	public String web ="";
-	public String correo="";
-	public int idcompañia=0;
-
+	public int idagencia;
+	public String nombre;
+	public int telefono;
+	public String direccion;
+	public String web;
+	public String correo;
+	public int idcompañia;
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
 	PreparedStatement pst = null;
@@ -61,6 +63,12 @@ public class Agencia {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
+	public int getIdagencia() {
+		return idagencia;
+	}
+	public void setIdagencia(int idagencia) {
+		this.idagencia = idagencia;
+	}
 	
 	public void create(String nombre, int telefono, String direccion, String web, String correo, int idcompañia) {
 		String script = "INSERT INTO tblagencia(nombre, telefono, direccion, web, correo, idcompañia) VALUES (?, ?, ?, ?, ?, ?)";
@@ -85,13 +93,33 @@ public class Agencia {
 			conexionBD = conector.conectarBD();
 			pst = conexionBD.prepareStatement(script);
 			pst.setInt(1, idagencia);
-			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar el registro perteneciente al id # "+idagencia +"?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showConfirmDialog(null, "fila eliminada");
+				JOptionPane.showConfirmDialog(null, "ID " +idagencia + "eliminado");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
 	}
+	public void read(int idagencia, JTextField nombre, JTextField telefono, JTextField direccion, JTextField web, JTextField correo, JTextField idcompañia) {
+		String script = "SELECT * FROM tblagencia where idagencia = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setInt(1, idagencia);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				nombre.setText(rs.getString(2));
+				telefono.setText(rs.getString(3));
+				direccion.setText(rs.getString(4));
+				web.setText(rs.getString(5));
+				correo.setText(rs.getString(6));
+				idcompañia.setText(rs.getString(7));
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
+	/*public void update() { }*/
 }

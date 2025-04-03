@@ -2,15 +2,18 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controller.Conexion;
 
 public class Medio {
-	public String nombre="";
-	public String observacion="";
-	public int idtipo=0;
+	public int idmedio;
+	public String nombre;
+	public String observacion;
+	public int idtipo;
 	
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
@@ -39,6 +42,12 @@ public class Medio {
 	}
 	public void setIdtipo(int idtipo) {
 		this.idtipo = idtipo;
+	}
+	public int getIdmedio() {
+		return idmedio;
+	}
+	public void setIdmedio(int idmedio) {
+		this.idmedio = idmedio;
 	}
 	
 	public void datosMedio(String nombre, String observacion, int idtipo) {
@@ -70,4 +79,21 @@ public class Medio {
 			System.out.println(errorconexion.getMessage());
 		}
 }
+	public void read(int idmedio, JTextField nombre, JTextField observacion, JTextField idtipomedio) {
+		String script = "SELECT * FROM tblmedio WHERE idmedio = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setInt(1, idmedio);
+			ResultSet rs = pst.executeQuery(); //almacenamiento temporal
+			while (rs.next()) {
+				nombre.setText(rs.getString(2));
+				observacion.setText(rs.getString(3));
+				idtipomedio.setText(rs.getString(4));
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
+	
 }
