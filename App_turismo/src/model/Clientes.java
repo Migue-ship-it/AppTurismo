@@ -126,7 +126,7 @@ public class Clientes {
 			pst.setString(10, fechanacimiento);
 			pst.setString(11, estadocivil);
 			pst.executeUpdate();
-			JOptionPane.showConfirmDialog(null, "Registro con exito");
+			JOptionPane.showMessageDialog(null, "Registro con exito");
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -140,7 +140,7 @@ public class Clientes {
 			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showConfirmDialog(null, "fila eliminada");
+				JOptionPane.showMessageDialog(null, "fila eliminada");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -171,7 +171,32 @@ public class Clientes {
 			System.out.println(errorconexion.getMessage());
 		}
 	}
-	/*public void update() {
-		
-	}*/
+	public void update(int idclientes, String tipodocumento, int numerodocumento, String nombres, String apellidos, String direccion, String correoelectronico, int numerotelefonico, String eps,
+			String alergias, String fechanacimiento, String estadocivil) {
+		String script = "UPDATE tblclientes set tipodocumento = ?, numerodocumento = ?, nombres = ?, apellidos = ?, direccion = ?, correoelectronico = ?, numerotelefonico = ?, eps = ?,"
+				+ "alergias = ?, fechanacimiento = ?, estadocivil = ? where idclientes = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setString(1, tipodocumento);
+			pst.setInt(2, numerodocumento);
+			pst.setString(3, nombres);
+			pst.setString(4, apellidos);
+			pst.setString(5, direccion);
+			pst.setString(6, correoelectronico);
+			pst.setInt(7, numerotelefonico);
+			pst.setString(8, eps);
+			pst.setString(9, alergias);
+			pst.setString(10, fechanacimiento);
+			pst.setString(11, estadocivil);
+			pst.setInt(12, idclientes);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro perteneciente al id # "+idclientes+"?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "ID "+idclientes+" actualizado");
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
 }

@@ -161,7 +161,24 @@ public class FrCompañia extends JFrame {
 			}
 		});
 		btnGuardar_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
-		btnGuardar_1.setBounds(290, 222, 65, 51);
+		btnGuardar_1.setBounds(247, 222, 65, 51);
 		CompañiaPane.add(btnGuardar_1);
+		
+		JButton btnUpdate = new JButton("");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.update(Integer.parseInt(textIDCompañia.getText()), Integer.parseInt(textTelefono.getText()), textDireccion.getText(),textFechaDeCreacion.getText(), textRazonSocial.getText(), textCorreo.getText(), textWeb.getText());
+				textIDCompañia.setText("");
+				textTelefono.setText("");
+				textDireccion.setText("");
+				textFechaDeCreacion.setText("");
+				textRazonSocial.setText("");
+				textCorreo.setText("");
+				textWeb.setText("");
+			}
+		});
+		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
+		btnUpdate.setBounds(322, 223, 65, 50);
+		CompañiaPane.add(btnUpdate);
 	}
 }

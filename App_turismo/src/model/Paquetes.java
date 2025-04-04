@@ -140,7 +140,7 @@ public class Paquetes {
 			pst.setInt(12, idclientes);
 			pst.setInt(13, idpromotor);
 			pst.executeUpdate();
-			JOptionPane.showConfirmDialog(null, "Registro con exito");
+			JOptionPane.showMessageDialog(null, "Registro con exito");
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -154,7 +154,7 @@ public class Paquetes {
 			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showConfirmDialog(null, "fila eliminada");
+				JOptionPane.showMessageDialog(null, "fila eliminada");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -182,6 +182,35 @@ public class Paquetes {
 				idvehiculo.setText(rs.getString(12));
 				idclientes.setText(rs.getString(13));
 				idpromotor.setText(rs.getString(14));
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
+	public void update(int idpaquete, int codigoventa, int iddestino, int idorigen, String fechaventa, String horaventa, String fechaejecucion, String horasalida, String observacion, String precio, int idagencia,
+		int idvehiculo, int idclientes, int idpromotor) {
+		String script = "UPDATE tblpaquetes set codigoventa = ?, iddestino = ?, idorigen = ?, fechaventa = ?, horaventa = ?, fechaejecucion = ?, horasalida = ?, observacion = ?, precio = ?, idagencia = ?, idvehiculo = ?, idclientes = ?, idpromotor = ? where idpaquete = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setInt(1, codigoventa);
+			pst.setInt(2, iddestino);
+			pst.setInt(3, idorigen);
+			pst.setString(4, fechaventa);
+			pst.setString(5, horaventa);
+			pst.setString(6, fechaejecucion);
+			pst.setString(7, horasalida);
+			pst.setString(8, observacion);
+			pst.setString(9, precio);
+			pst.setInt(10, idagencia);
+			pst.setInt(11, idvehiculo);
+			pst.setInt(12, idclientes);
+			pst.setInt(13, idpromotor);
+			pst.setInt(14, idpaquete);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro perteneciente al id # "+ idpaquete +"?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "ID "+ idpaquete +" actualizado");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());

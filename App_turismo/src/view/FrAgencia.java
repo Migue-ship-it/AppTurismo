@@ -143,7 +143,7 @@ public class FrAgencia extends JFrame {
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
-		btnBorrar.setBounds(393, 205, 46, 50);
+		btnBorrar.setBounds(397, 205, 42, 50);
 		agenciaPane.add(btnBorrar);
 		
 		JLabel lblidAgencia = new JLabel("idagencia");
@@ -162,7 +162,24 @@ public class FrAgencia extends JFrame {
 			}
 		});
 		btnRead.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
-		btnRead.setBounds(347, 145, 52, 50);
+		btnRead.setBounds(312, 147, 57, 50);
 		agenciaPane.add(btnRead);
+		
+		JButton btnUpdate = new JButton("");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.update(Integer.parseInt(textidAgencia.getText()), textNombre.getText(), Integer.parseInt(textTelefono.getText()), textDireccion.getText(), textWeb.getText(), textCorreo.getText(), Integer.parseInt(textidCompañia.getText()));
+				textidAgencia.setText("");
+				textNombre.setText("");
+				textTelefono.setText("");
+				textDireccion.setText("");
+				textWeb.setText("");
+				textCorreo.setText("");
+				textidCompañia.setText("");
+			}
+		});
+		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
+		btnUpdate.setBounds(387, 146, 52, 50);
+		agenciaPane.add(btnUpdate);
 	}
 }

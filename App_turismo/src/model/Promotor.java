@@ -20,6 +20,7 @@ public class Promotor {
 	public String correocorp;
 	public String direccion;
 	public String fechanacimiento;
+	//public String contrasena;
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
 	PreparedStatement pst = null; //preparar la transaccion
@@ -106,7 +107,7 @@ public class Promotor {
 			pst.setString(8, direccion);
 			pst.setString(9, fechanacimiento);
 			pst.executeUpdate();
-			JOptionPane.showConfirmDialog(null, "Registro con exito");
+			JOptionPane.showMessageDialog(null, "Registro con exito");
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -120,7 +121,7 @@ public class Promotor {
 			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showConfirmDialog(null, "fila eliminada");
+				JOptionPane.showMessageDialog(null, "fila eliminada");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -149,20 +150,28 @@ public class Promotor {
 			System.out.println(errorconexion.getMessage());
 		}
 	}
-	public void controlAcceso(int user, String password) {
-		String script = "";
+	public void update(int idpromotor, String nombres, String apellidos, String correopersonal, int numerotelefonico, String tipodocumento, int documento, String correocorp, String direccion, String fechanacimiento) {
+		String script = "UPDATE tblpromotor set nombres = ?, apellidos = ?, correopersonal = ?, numerotelefonico = ?, tipodocumento = ?, documento = ?, correocorp = ?, direccion = ?, fechanacimiento = ? where idpromotor = ?";
 		try {
 			conexionBD = conector.conectarBD();
 			pst = conexionBD.prepareStatement(script);
-			pst.setInt(1, user);
-			pst.setString(2, password);
-			ResultSet rs = pst.executeQuery(); //almacenamiento temporal
-			while (rs.next()) {
-				//principal.show();
-				JOptionPane.showConfirmDialog(null, "Acceso permitido");
+			pst.setString(1, nombres);
+			pst.setString(2, apellidos);
+			pst.setString(3, correopersonal);
+			pst.setInt(4, numerotelefonico);
+			pst.setString(5, tipodocumento);
+			pst.setInt(6, documento);
+			pst.setString(7, correocorp);
+			pst.setString(8, direccion);
+			pst.setString(9, fechanacimiento);
+			pst.setInt(10, idpromotor);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro perteneciente al id # "+ idpromotor +"?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "ID "+ idpromotor +" actualizado");
 			}
-		} catch (Exception erroracceso) {
-			System.out.println(erroracceso.getMessage());
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
 		}
 	}
 }

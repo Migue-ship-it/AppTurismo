@@ -81,7 +81,7 @@ public class FrTiposMedio extends JFrame {
 				textObservacion.setText("");
 			}
 		});
-		btnGuardar.setBounds(296, 236, 68, 47);
+		btnGuardar.setBounds(239, 236, 68, 47);
 		TiposMedioPane.add(btnGuardar);
 		
 		JLabel lblTiposMedio = new JLabel("DATOS TIPOS DE MEDIO");
@@ -96,7 +96,7 @@ public class FrTiposMedio extends JFrame {
 			}
 		});
 		btnGuardar_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
-		btnGuardar_1.setBounds(120, 236, 68, 47);
+		btnGuardar_1.setBounds(120, 236, 46, 47);
 		TiposMedioPane.add(btnGuardar_1);
 		
 		textIDTipoMedio = new JTextField();
@@ -115,8 +115,21 @@ public class FrTiposMedio extends JFrame {
 				cr.read(Integer.parseInt(textIDTipoMedio.getText()), textNombre, textObservacion);
 			}
 		});
-		btnBuscar.setBounds(214, 236, 53, 47);
+		btnBuscar.setBounds(176, 236, 53, 47);
 		TiposMedioPane.add(btnBuscar);
+		
+		JButton btnUpdate = new JButton("");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.update(Integer.parseInt(textIDTipoMedio.getText()), textNombre.getText(), textObservacion.getText());
+				textIDTipoMedio.setText("");
+				textNombre.setText("");
+				textObservacion.setText("");
+			}
+		});
+		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
+		btnUpdate.setBounds(317, 236, 52, 47);
+		TiposMedioPane.add(btnUpdate);
 	}
 
 }

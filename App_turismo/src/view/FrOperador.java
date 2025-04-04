@@ -34,6 +34,7 @@ public class FrOperador extends JFrame {
 	private JLabel lblidOperador;
 	Operador cr = new Operador();
 	private JButton btnBuscar;
+	private JButton btnUpdate;
 	/**
 	 * Launch the application.
 	 */
@@ -57,7 +58,7 @@ public class FrOperador extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\211875_plane_icon.png"));
 		setTitle("OPERADOR TURISTICO");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 319);
 		operadorPane = new JPanel();
 		operadorPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -186,7 +187,27 @@ public class FrOperador extends JFrame {
 			}
 		});
 		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
-		btnBuscar.setBounds(310, 209, 65, 49);
+		btnBuscar.setBounds(274, 212, 65, 49);
 		operadorPane.add(btnBuscar);
+		
+		btnUpdate = new JButton("");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.update(Integer.parseInt(textIDOperador.getText()), textNombres.getText(), textApellidos.getText(), textCorreo.getText(), Integer.parseInt(textNoTelefono.getText()), textTipoDocumento.getText(), 
+				Integer.parseInt(textNoDocumento.getText()), textDireccion.getText(), Integer.parseInt(textIDVehiculo.getText()));
+				textIDOperador.setText("");
+				textNombres.setText("");
+				textApellidos.setText("");
+				textCorreo.setText("");
+				textNoTelefono.setText("");
+				textTipoDocumento.setText("");
+				textNoDocumento.setText("");
+				textDireccion.setText("");
+				textIDVehiculo.setText("");
+			}
+		});
+		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
+		btnUpdate.setBounds(349, 209, 65, 50);
+		operadorPane.add(btnUpdate);
 	}
 }

@@ -82,7 +82,7 @@ public class Compañia {
 			pst.setString(5, correo);
 			pst.setString(6, web);
 			pst.executeUpdate();
-			JOptionPane.showConfirmDialog(null, "Registro con exito");
+			JOptionPane.showMessageDialog(null, "Registro con exito");
 		} catch (SQLException errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -96,7 +96,7 @@ public class Compañia {
 			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showConfirmDialog(null, "fila eliminada");
+				JOptionPane.showMessageDialog(null, "fila eliminada");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -121,8 +121,26 @@ public class Compañia {
 			System.out.println(errorconexion.getMessage());
 		}
 	}
-	/*public void update() {
-		
-	}*/
+	public void update(int idcompañia, int telefono, String direccion, String fechacreacion, String razonsocial, String correo, String web) {
+		String script = "UPDATE tblcompañia set telefono = ?, direccion = ?, fechacreacion = ?, razonsocial = ?, correo = ?, web = ? where idcompañia = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setInt(1, telefono);
+			pst.setString(2, direccion);
+			pst.setString(3, fechacreacion);
+			pst.setString(4, razonsocial);
+			pst.setString(5, correo);
+			pst.setString(6, web);
+			pst.setInt(7, idcompañia);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro perteneciente al id # "+idcompañia+"?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "ID "+idcompañia+" actualizado");
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
 	
 }

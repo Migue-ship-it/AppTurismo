@@ -87,5 +87,21 @@ public class TiposMedio {
 			System.out.println(errorconexion.getMessage());
 		}
 	}
-	
+	public void update(int idtipo, String nombre, String observacion) {
+		String script = "UPDATE tbltiposmedio set nombre = ?, observacion = ? where idtipo = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setString(1, nombre);
+			pst.setString(2, observacion);
+			pst.setInt(3, idtipo);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro perteneciente al id # "+ idtipo +"?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "ID "+ idtipo +" actualizado");
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
 }

@@ -45,6 +45,7 @@ public class FrPaquetes extends JFrame {
 	private JLabel lblidPaquete;
 	Paquetes cr = new Paquetes();
 	private JButton btnBuscar;
+	private JButton btnUpdate;
 	/**
 	 * Launch the application.
 	 */
@@ -99,7 +100,7 @@ public class FrPaquetes extends JFrame {
 				textIDPromotor.setText("");
 			}
 		});
-		btnGuardar.setBounds(294, 257, 68, 52);
+		btnGuardar.setBounds(253, 257, 68, 52);
 		paquetesPane.add(btnGuardar);
 		
 		JLabel lblIdorigen = new JLabel("idorigen");
@@ -231,7 +232,7 @@ public class FrPaquetes extends JFrame {
 			}
 		});
 		btnGuardar_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
-		btnGuardar_1.setBounds(148, 257, 68, 52);
+		btnGuardar_1.setBounds(117, 257, 52, 52);
 		paquetesPane.add(btnGuardar_1);
 		
 		textIDPaquete = new JTextField();
@@ -251,7 +252,33 @@ public class FrPaquetes extends JFrame {
 			}
 		});
 		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
-		btnBuscar.setBounds(221, 257, 68, 52);
+		btnBuscar.setBounds(190, 257, 52, 52);
 		paquetesPane.add(btnBuscar);
+		
+		btnUpdate = new JButton("");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.update(Integer.parseInt(textIDPaquete.getText()), Integer.parseInt(textCodigoVenta.getText()), Integer.parseInt(textIDdestino.getText()), Integer.parseInt(textIDorigen.getText()), textFechaVenta.getText(),
+				textHoraVenta.getText(), textFechaEjecucion.getText(), textHoraSalida.getText(), textObservacion.getText(), textPrecio.getText(), Integer.parseInt(textIDAgencia.getText()), 
+				Integer.parseInt(textIDVehiculo.getText()), Integer.parseInt(textIDClientes.getText()), Integer.parseInt(textIDPromotor.getText()));
+				textIDPaquete.setText("");
+				textCodigoVenta.setText("");
+				textIDdestino.setText("");
+				textIDorigen.setText("");
+				textFechaVenta.setText("");
+				textHoraVenta.setText("");
+				textFechaEjecucion.setText("");
+				textHoraSalida.setText("");
+				textObservacion.setText("");
+				textPrecio.setText("");
+				textIDAgencia.setText("");
+				textIDVehiculo.setText("");
+				textIDClientes.setText("");
+				textIDPromotor.setText("");
+			}
+		});
+		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
+		btnUpdate.setBounds(331, 257, 52, 50);
+		paquetesPane.add(btnUpdate);
 	}
 }

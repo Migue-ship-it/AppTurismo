@@ -35,6 +35,7 @@ public class FrVehiculos extends JFrame {
 	private JLabel lblidVehiculo;
 	Vehiculos cr = new Vehiculos();
 	private JButton btnBuscar;
+	private JButton btnUpdate;
 	/**
 	 * Launch the application.
 	 */
@@ -80,7 +81,7 @@ public class FrVehiculos extends JFrame {
 				textIDTipoVehiculo.setText("");
 			}
 		});
-		btnGuardar.setBounds(218, 303, 65, 49);
+		btnGuardar.setBounds(181, 303, 65, 49);
 		vehiculosPane.add(btnGuardar);
 		
 		JLabel lblMatricula = new JLabel("matricula");
@@ -158,7 +159,7 @@ public class FrVehiculos extends JFrame {
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
-		btnBorrar.setBounds(127, 303, 65, 49);
+		btnBorrar.setBounds(124, 303, 42, 49);
 		vehiculosPane.add(btnBorrar);
 		
 		textIDVehiculo = new JTextField();
@@ -177,8 +178,27 @@ public class FrVehiculos extends JFrame {
 			}
 		});
 		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
-		btnBuscar.setBounds(306, 303, 65, 49);
+		btnBuscar.setBounds(256, 303, 42, 49);
 		vehiculosPane.add(btnBuscar);
+		
+		btnUpdate = new JButton("");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.update(Integer.parseInt(textIDVehiculo.getText()),textMatricula.getText(), textMarca.getText(), Integer.parseInt(textPuestos.getText()), textModelo.getText(), Integer.parseInt(textNoMotor.getText()),
+				textCategoria.getText(), Integer.parseInt(textIDTipoVehiculo.getText()));
+				textIDVehiculo.setText("");
+				textMatricula.setText("");
+				textMarca.setText("");
+				textPuestos.setText("");
+				textModelo.setText("");
+				textNoMotor.setText("");
+				textCategoria.setText("");
+				textIDTipoVehiculo.setText("");
+			}
+		});
+		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
+		btnUpdate.setBounds(308, 303, 52, 50);
+		vehiculosPane.add(btnUpdate);
 	}
 
 }

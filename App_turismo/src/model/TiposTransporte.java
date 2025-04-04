@@ -51,7 +51,7 @@ public class TiposTransporte {
 			pst.setString(1, nombre);
 			pst.setString(2, observacion);
 			pst.executeUpdate();
-			JOptionPane.showConfirmDialog(null, "Registro con exito");
+			JOptionPane.showMessageDialog(null, "Registro con exito");
 		} catch (SQLException errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -65,7 +65,7 @@ public class TiposTransporte {
 			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showConfirmDialog(null, "fila eliminada");
+				JOptionPane.showMessageDialog(null, "fila eliminada");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -81,6 +81,23 @@ public class TiposTransporte {
 			while (rs.next()) {
 				nombre.setText(rs.getString(2));
 				observacion.setText(rs.getString(3));
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
+	public void update(int idtipo, String nombre, String observacion) {
+		String script = "UPDATE tbltipostransporte set nombre = ?, observacion = ? where idtipo = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setString(1, nombre);
+			pst.setString(2, observacion);
+			pst.setInt(3, idtipo);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro perteneciente al id # "+ idtipo +"?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "ID "+ idtipo +" actualizado");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());

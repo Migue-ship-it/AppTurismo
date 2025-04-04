@@ -34,6 +34,7 @@ public class FrPromotor extends JFrame {
 	private JLabel lblidPromotor;
 	private JTextField textIDPromotor;
 	Promotor cr = new Promotor();
+	private JButton btnUpdate;
 	/**
 	 * Launch the application.
 	 */
@@ -198,5 +199,26 @@ public class FrPromotor extends JFrame {
 		btnRead.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
 		btnRead.setBounds(232, 217, 51, 52);
 		promotorPane.add(btnRead);
+		
+		btnUpdate = new JButton("");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.update(Integer.parseInt(textIDPromotor.getText()), textNombres.getText(), textApellidos.getText(), textCorreoPersonal.getText(), Integer.parseInt(textNoTelefono.getText()), textTipoDocumento.getText(),
+				Integer.parseInt(textNoDocumento.getText()), textCorreoCorporativo.getText(), textDireccion.getText(), textFechaNacimiento.getText());
+				textIDPromotor.setText("");
+				textNombres.setText("");
+				textApellidos.setText("");
+				textCorreoPersonal.setText("");
+				textNoTelefono.setText("");
+				textTipoDocumento.setText("");
+				textNoDocumento.setText("");
+				textCorreoCorporativo.setText("");
+				textDireccion.setText("");
+				textFechaNacimiento.setText("");
+			}
+		});
+		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
+		btnUpdate.setBounds(363, 219, 52, 50);
+		promotorPane.add(btnUpdate);
 	}
 }

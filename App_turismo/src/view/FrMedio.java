@@ -65,7 +65,7 @@ public class FrMedio extends JFrame {
 				textIDTipo.setText("");
 			}
 		});
-		btnGuardar.setBounds(181, 246, 56, 52);
+		btnGuardar.setBounds(158, 246, 56, 52);
 		MedioPane.add(btnGuardar);
 		
 		JLabel lblNombre = new JLabel("Nombre");
@@ -107,7 +107,7 @@ public class FrMedio extends JFrame {
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
-		btnBorrar.setBounds(276, 246, 56, 52);
+		btnBorrar.setBounds(224, 246, 56, 52);
 		MedioPane.add(btnBorrar);
 		
 		JLabel lblidMedio = new JLabel("ID Medio");
@@ -126,7 +126,21 @@ public class FrMedio extends JFrame {
 			}
 		});
 		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
-		btnBuscar.setBounds(354, 246, 56, 52);
+		btnBuscar.setBounds(290, 246, 56, 52);
 		MedioPane.add(btnBuscar);
+		
+		JButton btnUpdate = new JButton("");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.update(Integer.parseInt(textIDMedio.getText()), textNombre.getText(), textObservacion.getText(), Integer.parseInt(textIDTipo.getText()));
+				textIDMedio.setText("");
+				textNombre.setText("");
+				textObservacion.setText("");
+				textIDTipo.setText("");
+			}
+		});
+		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
+		btnUpdate.setBounds(356, 246, 52, 50);
+		MedioPane.add(btnUpdate);
 	}
 }

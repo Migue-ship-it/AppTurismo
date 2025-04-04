@@ -58,7 +58,7 @@ public class FrClientes extends JFrame {
 		setTitle("CLIENTES");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\309035_user_account_human_person_icon.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 493, 342);
+		setBounds(100, 100, 550, 324);
 		ClientesPane = new JPanel();
 		ClientesPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -219,5 +219,27 @@ public class FrClientes extends JFrame {
 		btnRead.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
 		btnRead.setBounds(365, 178, 58, 63);
 		ClientesPane.add(btnRead);
+		
+		JButton btnUpdate = new JButton("");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.update(Integer.parseInt(textIDClientes.getText()), textTipoDocumento.getText(), Integer.parseInt(textNoDocumento.getText()), textNombres.getText(), textApellidos.getText(), textDireccion.getText(), textCorreo.getText(), Integer.parseInt(textNoTelefono.getText()), textEps.getText(), textAlergias.getText(), textFechaNacimiento.getText(), textEstadoCivil.getText());
+				textIDClientes.setText("");
+				textTipoDocumento.setText("");
+				textNoDocumento.setText("");
+				textNombres.setText("");
+				textApellidos.setText("");
+				textDireccion.setText("");
+				textCorreo.setText("");
+				textNoTelefono.setText("");
+				textEps.setText("");
+				textAlergias.setText("");
+				textFechaNacimiento.setText("");
+				textEstadoCivil.setText("");
+			}
+		});
+		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
+		btnUpdate.setBounds(433, 184, 52, 57);
+		ClientesPane.add(btnUpdate);
 	}
 }

@@ -98,7 +98,7 @@ public class Operador {
 			pst.setString(7, direccion);
 			pst.setInt(8, idvehiculo);
 			pst.executeUpdate();
-			JOptionPane.showConfirmDialog(null, "Registro con exito");
+			JOptionPane.showMessageDialog(null, "Registro con exito");
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -112,7 +112,7 @@ public class Operador {
 			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showConfirmDialog(null, "fila eliminada");
+				JOptionPane.showMessageDialog(null, "fila eliminada");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -134,6 +134,29 @@ public class Operador {
 				documento.setText(rs.getString(7));
 				direccion.setText(rs.getString(8));
 				idvehiculo.setText(rs.getString(9));
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
+	public void update(int idoperador, String nombres, String apellidos, String correoelectronico, int numerotelefonico, String tipodocumento, int documento, String direccion, int idvehiculo) {
+		String script = "UPDATE tbloperador set nombres = ?, apellidos = ?, correoelectronico = ?, numerotelefonico = ?, tipodocumento = ?, documento = ?, direccion = ?, idvehiculo = ? where id = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setString(1, nombres);
+			pst.setString(2, apellidos);
+			pst.setString(3, correoelectronico);
+			pst.setInt(4, numerotelefonico);
+			pst.setString(5, tipodocumento);
+			pst.setInt(6, documento);
+			pst.setString(7, direccion);
+			pst.setInt(8, idvehiculo);
+			pst.setInt(9, idoperador);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro perteneciente al id # "+ idoperador +"?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "ID "+ idoperador +" actualizado");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());

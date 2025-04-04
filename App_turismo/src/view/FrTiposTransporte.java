@@ -63,7 +63,7 @@ public class FrTiposTransporte extends JFrame {
 				textObservacion.setText("");
 			}
 		});
-		btnGuardar.setBounds(318, 236, 55, 47);
+		btnGuardar.setBounds(248, 236, 55, 47);
 		TiposTransportePane.add(btnGuardar);
 		
 		JLabel lblNombre = new JLabel("nombre");
@@ -96,7 +96,7 @@ public class FrTiposTransporte extends JFrame {
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
-		btnBorrar.setBounds(175, 236, 55, 47);
+		btnBorrar.setBounds(118, 236, 55, 47);
 		TiposTransportePane.add(btnBorrar);
 		
 		textIDTipoTransporte = new JTextField();
@@ -115,7 +115,20 @@ public class FrTiposTransporte extends JFrame {
 			}
 		});
 		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
-		btnBuscar.setBounds(250, 236, 55, 47);
+		btnBuscar.setBounds(183, 236, 55, 47);
 		TiposTransportePane.add(btnBuscar);
+		
+		JButton btnUpdate = new JButton("");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.update(Integer.parseInt(textIDTipoTransporte.getText()), textNombre.getText(), textObservacion.getText());
+				textIDTipoTransporte.setText("");
+				textNombre.setText("");
+				textObservacion.setText("");
+			}
+		});
+		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
+		btnUpdate.setBounds(313, 236, 52, 50);
+		TiposTransportePane.add(btnUpdate);
 	}
 }

@@ -89,7 +89,7 @@ public class Vehiculos {
 			pst.setString(6, categoria);
 			pst.setInt(7, idtipo);
 			pst.executeUpdate();
-			JOptionPane.showConfirmDialog(null, "Registro con exito");
+			JOptionPane.showMessageDialog(null, "Registro con exito");
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -103,7 +103,7 @@ public class Vehiculos {
 			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showConfirmDialog(null, "fila eliminada");
+				JOptionPane.showMessageDialog(null, "fila eliminada");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -124,6 +124,28 @@ public class Vehiculos {
 				motores.setText(rs.getString(6));
 				categoria.setText(rs.getString(7));
 				idtipovehiculo.setText(rs.getString(8));
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
+	public void update(int idvehiculo, String matricula, String marca, int puestos, String modelo, int numeromotor, String categoria, int idtipo) {
+		String script = "UPDATE tblvehiculos set matricula = ?, marca = ?, puestos = ?, modelo = ?, numeromotor = ?, categoria = ?, idtipo = ? where idvehiculo = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setString(1, matricula);
+			pst.setString(2, marca);
+			pst.setInt(3, puestos);
+			pst.setString(4, modelo);
+			pst.setInt(5, numeromotor);
+			pst.setString(6, categoria);
+			pst.setInt(7, idtipo);
+			pst.setInt(8, idvehiculo);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro perteneciente al id # "+ idvehiculo +"?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "ID "+ idvehiculo +" actualizado");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());

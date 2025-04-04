@@ -82,7 +82,7 @@ public class Agencia {
 			pst.setString(5, correo);
 			pst.setInt(6, idcompañia);
 			pst.executeUpdate();
-			JOptionPane.showConfirmDialog(null, "Registro con exito");
+			JOptionPane.showMessageDialog(null, "Registro con exito");
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -96,7 +96,7 @@ public class Agencia {
 			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar el registro perteneciente al id # "+idagencia +"?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showConfirmDialog(null, "ID " +idagencia + "eliminado");
+				JOptionPane.showMessageDialog(null, "ID " +idagencia + "eliminado");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -121,5 +121,25 @@ public class Agencia {
 			System.out.println(errorconexion.getMessage());
 		}
 	}
-	/*public void update() { }*/
+	public void update(int idagencia, String nombre, int telefono, String direccion, String web, String correo, int idcompañia) {
+		String script = "UPDATE tblagencia set nombre = ?, telefono = ?, direccion = ?, web = ?, correo = ?, idcompañia = ? where idagencia = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setString(1, nombre);
+			pst.setInt(2, telefono);
+			pst.setString(3, direccion);
+			pst.setString(4, web);
+			pst.setString(5, correo);
+			pst.setInt(6, idcompañia);
+			pst.setInt(7, idagencia);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro perteneciente al id # "+idagencia+"?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "ID "+idagencia+" actualizado");
+			}
+		} catch (Exception errorconexion) {
+			System.out.println(errorconexion.getMessage());
+		}
+	}
 }
