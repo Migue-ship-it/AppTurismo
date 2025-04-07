@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -8,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import controller.Conexion;
+import view.FrPrincipal;
 
 public class Promotor {
 	public int idpromotor;
@@ -20,10 +22,10 @@ public class Promotor {
 	public String correocorp;
 	public String direccion;
 	public String fechanacimiento;
-	//public String contrasena;
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
 	PreparedStatement pst = null; //preparar la transaccion
+	FrPrincipal principal = new FrPrincipal();//Interfaz del promotor (principal)
 	
 	public Conexion getConector() {
 		return conector;
@@ -172,6 +174,22 @@ public class Promotor {
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
+		}
+	}
+	public void controlacceso(int user, String password) {
+		String script = "SELECT * FROM tblpromotor WHERE documento = ? and contrasena = ?";
+		try {
+			conexionBD = conector.conectarBD();
+			pst = conexionBD.prepareStatement(script);
+			pst.setInt(1, user);
+			pst.setString(2, password);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				principal.setVisible(true);
+				JOptionPane.showMessageDialog(null, "Acceso permitido");
+			}
+		} catch (Exception errorcontrolacceso) {
+			System.out.println(errorcontrolacceso.getMessage());
 		}
 	}
 }

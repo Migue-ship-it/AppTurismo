@@ -134,12 +134,12 @@ public class Clientes {
 	public void delete(int idclientes) {
 		String script = "delete from tblclientes where idclientes = ?";
 		try {
-			conexionBD = conector.conectarBD();
-			pst = conexionBD.prepareStatement(script);
-			pst.setInt(1, idclientes);
+			conexionBD = conector.conectarBD(); //abrir la conexion
+			pst = conexionBD.prepareStatement(script); //abrir el buffer
+			pst.setInt(1, idclientes); //parametrizar el campo
 			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
-				pst.executeUpdate();
+				pst.executeUpdate(); // confirmar la operacion
 				JOptionPane.showMessageDialog(null, "fila eliminada");
 			}
 		} catch (Exception errorconexion) {

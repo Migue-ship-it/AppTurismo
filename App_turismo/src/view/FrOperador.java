@@ -55,7 +55,7 @@ public class FrOperador extends JFrame {
 	 * Create the frame.
 	 */
 	public FrOperador() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\211875_plane_icon.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\7791667_necktie_businessman_suit_manager_employee_icon.png"));
 		setTitle("OPERADOR TURISTICO");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 319);

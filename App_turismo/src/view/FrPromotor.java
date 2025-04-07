@@ -55,7 +55,7 @@ public class FrPromotor extends JFrame {
 	 * Create the frame.
 	 */
 	public FrPromotor() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\7791667_necktie_businessman_suit_manager_employee_icon.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\3994384_local_location_map_travel_world_icon.png"));
 		setTitle("PROMOTOR");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 315);
