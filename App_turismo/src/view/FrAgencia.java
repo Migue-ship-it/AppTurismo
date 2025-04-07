@@ -30,7 +30,6 @@ public class FrAgencia extends JFrame {
 	private JTextField textidCompañia;
 	private JTextField textidAgencia;
 	Agencia cr = new Agencia();
-	FrPrincipal m = new FrPrincipal();
 	/**
 	 * Launch the application.
 	 */
