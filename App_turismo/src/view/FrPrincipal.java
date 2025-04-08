@@ -22,9 +22,9 @@ public class FrPrincipal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FrPrincipal frame = new FrPrincipal();
-					frame.setVisible(true);
-					frame.setExtendedState(MAXIMIZED_BOTH);
+					FrPrincipal frameP = new FrPrincipal();
+					frameP.setVisible(true);
+					frameP.setExtendedState(MAXIMIZED_BOTH);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -41,136 +41,155 @@ public class FrPrincipal extends JFrame {
 		setBounds(100, 100, 467, 300);
 		getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Agencia");
-		lblNewLabel_1.setBounds(21, 40, 69, 14);
-		getContentPane().add(lblNewLabel_1);
+		JLabel lblAgencia = new JLabel("Agencia");
+		lblAgencia.setBounds(42, 40, 69, 14);
+		getContentPane().add(lblAgencia);
 		
-		JLabel lblNewLabel_2 = new JLabel("Clientes");
-		lblNewLabel_2.setBounds(96, 40, 69, 14);
-		getContentPane().add(lblNewLabel_2);
+		JLabel lblClientes = new JLabel("Clientes");
+		lblClientes.setBounds(121, 40, 69, 14);
+		getContentPane().add(lblClientes);
 		
-		JLabel lblNewLabel_3 = new JLabel("Compañia");
-		lblNewLabel_3.setBounds(175, 40, 69, 14);
-		getContentPane().add(lblNewLabel_3);
+		JLabel lblCompañia = new JLabel("Compañia");
+		lblCompañia.setBounds(200, 40, 69, 14);
+		getContentPane().add(lblCompañia);
 		
-		JLabel lblNewLabel_4 = new JLabel("Medio");
-		lblNewLabel_4.setBounds(254, 40, 69, 14);
-		getContentPane().add(lblNewLabel_4);
+		JLabel lblMedio = new JLabel("Medio");
+		lblMedio.setBounds(293, 40, 69, 14);
+		getContentPane().add(lblMedio);
 		
-		JLabel lblNewLabel_5 = new JLabel("Operador");
-		lblNewLabel_5.setIcon(null);
-		lblNewLabel_5.setBounds(349, 40, 69, 14);
-		getContentPane().add(lblNewLabel_5);
+		JLabel lblOperador = new JLabel("Operador");
+		lblOperador.setBounds(372, 40, 69, 14);
+		lblOperador.setIcon(null);
+		getContentPane().add(lblOperador);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Paquetes");
-		lblNewLabel_1_1.setBounds(21, 157, 69, 14);
-		getContentPane().add(lblNewLabel_1_1);
+		JLabel lblPaquetes = new JLabel("Paquetes");
+		lblPaquetes.setBounds(42, 157, 69, 14);
+		getContentPane().add(lblPaquetes);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("Promotor");
-		lblNewLabel_1_2.setBounds(96, 157, 69, 14);
-		getContentPane().add(lblNewLabel_1_2);
+		JLabel lblPromotor = new JLabel("Promotor");
+		lblPromotor.setBounds(121, 157, 69, 14);
+		getContentPane().add(lblPromotor);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Tipos Medio");
-		lblNewLabel_1_3.setBounds(166, 157, 69, 14);
-		getContentPane().add(lblNewLabel_1_3);
+		JLabel lblTiposMedio = new JLabel("Tipos Medio");
+		lblTiposMedio.setBounds(196, 157, 69, 14);
+		getContentPane().add(lblTiposMedio);
 		
-		JLabel lblNewLabel_1_4 = new JLabel("Tipos Transporte");
-		lblNewLabel_1_4.setBounds(243, 157, 97, 14);
-		getContentPane().add(lblNewLabel_1_4);
+		JLabel lblTiposTransporte = new JLabel("Tipos Transporte");
+		lblTiposTransporte.setBounds(275, 152, 83, 24);
+		getContentPane().add(lblTiposTransporte);
 		
-		JLabel lblNewLabel_1_5 = new JLabel("Vehiculos");
-		lblNewLabel_1_5.setBounds(349, 157, 69, 14);
-		getContentPane().add(lblNewLabel_1_5);
+		JLabel lblVehiculos = new JLabel("Vehiculos");
+		lblVehiculos.setBounds(382, 157, 69, 14);
+		getContentPane().add(lblVehiculos);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAgencia = new JButton("");
+		btnAgencia.setBounds(42, 76, 45, 49);
+		btnAgencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				FrAgencia agencia = new FrAgencia(); //llamar al frame de la clase FrAgencia
+				agencia.setVisible(true); //mostrar el frame de dicha clase
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\7648081_travel_agency_service_tourism_icon.png"));
-		btnNewButton.setBounds(22, 76, 45, 49);
-		getContentPane().add(btnNewButton);
+		btnAgencia.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\7648081_travel_agency_service_tourism_icon.png"));
+		getContentPane().add(btnAgencia);
 		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnClientes = new JButton("");
+		btnClientes.setBounds(121, 76, 45, 49);
+		btnClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				FrClientes cliente = new FrClientes();
+				cliente.setVisible(true);
 			}
 		});
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\309035_user_account_human_person_icon.png"));
-		btnNewButton_1.setBounds(96, 76, 45, 49);
-		getContentPane().add(btnNewButton_1);
+		btnClientes.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\309035_user_account_human_person_icon.png"));
+		getContentPane().add(btnClientes);
 		
-		JButton btnNewButton_2 = new JButton("");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton btnCompañia = new JButton("");
+		btnCompañia.setBounds(196, 76, 51, 49);
+		btnCompañia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				FrCompañia compañia = new FrCompañia();
+				compañia.setVisible(true);
 			}
 		});
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\211875_plane_icon.png"));
-		btnNewButton_2.setBounds(171, 76, 51, 49);
-		getContentPane().add(btnNewButton_2);
+		btnCompañia.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\211875_plane_icon.png"));
+		getContentPane().add(btnCompañia);
 		
-		JButton btnNewButton_3 = new JButton("");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton btnMedio = new JButton("");
+		btnMedio.setBounds(285, 76, 51, 49);
+		btnMedio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				FrMedio medio = new FrMedio();
+				medio.setVisible(true);
 			}
 		});
-		btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\9004661_envelope_mail_email_letter_icon.png"));
-		btnNewButton_3.setBounds(256, 76, 51, 49);
-		getContentPane().add(btnNewButton_3);
+		btnMedio.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\9004661_envelope_mail_email_letter_icon.png"));
+		getContentPane().add(btnMedio);
 		
-		JButton btnNewButton_4 = new JButton("");
-		btnNewButton_4.addActionListener(new ActionListener() {
+		JButton btnOperador = new JButton("");
+		btnOperador.setBounds(371, 76, 58, 49);
+		btnOperador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				FrOperador operador = new FrOperador();
+				operador.setVisible(true);
 			}
 		});
-		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\7791667_necktie_businessman_suit_manager_employee_icon.png"));
-		btnNewButton_4.setBounds(349, 76, 58, 49);
-		getContentPane().add(btnNewButton_4);
+		btnOperador.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\7791667_necktie_businessman_suit_manager_employee_icon.png"));
+		getContentPane().add(btnOperador);
 		
-		JButton btnNewButton_5 = new JButton("");
-		btnNewButton_5.addActionListener(new ActionListener() {
+		JButton btnPaquetes = new JButton("");
+		btnPaquetes.setBounds(41, 201, 46, 49);
+		btnPaquetes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				FrPaquetes paquete = new FrPaquetes();
+				paquete.setVisible(true);
 			}
 		});
-		btnNewButton_5.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\9025861_package_box_icon.png"));
-		btnNewButton_5.setBounds(21, 201, 46, 49);
-		getContentPane().add(btnNewButton_5);
+		btnPaquetes.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\9025861_package_box_icon.png"));
+		getContentPane().add(btnPaquetes);
 		
-		JButton btnNewButton_6 = new JButton("");
-		btnNewButton_6.addActionListener(new ActionListener() {
+		JButton btnPromotor = new JButton("");
+		btnPromotor.setBounds(121, 201, 45, 49);
+		btnPromotor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				FrPromotor promotor = new FrPromotor();
+				promotor.setVisible(true);
 			}
 		});
-		btnNewButton_6.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3994384_local_location_map_travel_world_icon.png"));
-		btnNewButton_6.setBounds(96, 201, 45, 49);
-		getContentPane().add(btnNewButton_6);
+		btnPromotor.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3994384_local_location_map_travel_world_icon.png"));
+		getContentPane().add(btnPromotor);
 		
-		JButton btnNewButton_7 = new JButton("");
-		btnNewButton_7.addActionListener(new ActionListener() {
+		JButton btnTiposMedio = new JButton("");
+		btnTiposMedio.setBounds(196, 201, 51, 49);
+		btnTiposMedio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				FrTiposMedio tiposmedio = new FrTiposMedio();
+				tiposmedio.setVisible(true);
 			}
 		});
-		btnNewButton_7.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\352135_smartphone_icon.png"));
-		btnNewButton_7.setBounds(171, 201, 51, 49);
-		getContentPane().add(btnNewButton_7);
+		btnTiposMedio.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\352135_smartphone_icon.png"));
+		getContentPane().add(btnTiposMedio);
 		
-		JButton btnNewButton_8 = new JButton("");
-		btnNewButton_8.addActionListener(new ActionListener() {
+		JButton btnTiposTransporte = new JButton("");
+		btnTiposTransporte.setBounds(285, 201, 51, 49);
+		btnTiposTransporte.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				FrTiposTransporte tipostransporte = new FrTiposTransporte();
+				tipostransporte.setVisible(true);
 			}
 		});
-		btnNewButton_8.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\8541772_car_transport_icon.png"));
-		btnNewButton_8.setBounds(256, 201, 51, 49);
-		getContentPane().add(btnNewButton_8);
+		btnTiposTransporte.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\8541772_car_transport_icon.png"));
+		getContentPane().add(btnTiposTransporte);
 		
-		JButton btnNewButton_9 = new JButton("");
-		btnNewButton_9.addActionListener(new ActionListener() {
+		JButton btnVehiculos = new JButton("");
+		btnVehiculos.setBounds(374, 201, 55, 49);
+		btnVehiculos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				FrVehiculos vehiculo = new FrVehiculos();
+				vehiculo.setVisible(true);
 			}
 		});
-		btnNewButton_9.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\172508_motorcycle_icon.png"));
-		btnNewButton_9.setBounds(349, 201, 55, 49);
-		getContentPane().add(btnNewButton_9);
+		btnVehiculos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\172508_motorcycle_icon.png"));
+		getContentPane().add(btnVehiculos);
 	}
 }
