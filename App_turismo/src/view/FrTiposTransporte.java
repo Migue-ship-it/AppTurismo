@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import model.TiposTransporte;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -58,9 +59,13 @@ public class FrTiposTransporte extends JFrame {
 		btnGuardar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\326688_floppy_save_guardar_icon.png"));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.create(textNombre.getText(), textObservacion.getText());
-				textNombre.setText("");
-				textObservacion.setText("");
+				try {
+					cr.create(textNombre.getText(), textObservacion.getText());
+					textNombre.setText("");
+					textObservacion.setText("");
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnGuardar.setBounds(248, 236, 55, 47);
@@ -91,8 +96,12 @@ public class FrTiposTransporte extends JFrame {
 		JButton btnBorrar = new JButton("");
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
-				cr.delete(Integer.parseInt(textIDTipoTransporte.getText()));
-				textIDTipoTransporte.setText("");
+				try {
+					cr.delete(Integer.parseInt(textIDTipoTransporte.getText()));
+					textIDTipoTransporte.setText("");
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
@@ -111,7 +120,11 @@ public class FrTiposTransporte extends JFrame {
 		JButton btnBuscar = new JButton("");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.read(Integer.parseInt(textIDTipoTransporte.getText()), textNombre, textObservacion);
+				try {
+					cr.read(Integer.parseInt(textIDTipoTransporte.getText()), textNombre, textObservacion);
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
@@ -121,10 +134,14 @@ public class FrTiposTransporte extends JFrame {
 		JButton btnUpdate = new JButton("");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.update(Integer.parseInt(textIDTipoTransporte.getText()), textNombre.getText(), textObservacion.getText());
-				textIDTipoTransporte.setText("");
-				textNombre.setText("");
-				textObservacion.setText("");
+				try {
+					cr.update(Integer.parseInt(textIDTipoTransporte.getText()), textNombre.getText(), textObservacion.getText());
+					textIDTipoTransporte.setText("");
+					textNombre.setText("");
+					textObservacion.setText("");
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));

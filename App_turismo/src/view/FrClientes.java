@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import model.Clientes;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -118,19 +119,23 @@ public class FrClientes extends JFrame {
 		btnGuardar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\326688_floppy_save_guardar_icon.png"));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			cr.create(textTipoDocumento.getText(), Integer.parseInt(textNoDocumento.getText()), textNombres.getText(), textApellidos.getText(), textDireccion.getText(), 
-			textCorreo.getText(), Integer.parseInt(textNoTelefono.getText()), textEps.getText(), textAlergias.getText(), textFechaNacimiento.getText(), textEstadoCivil.getText());
-			textTipoDocumento.setText("");
-			textNoDocumento.setText("");
-			textNombres.setText("");
-			textApellidos.setText("");
-			textDireccion.setText("");
-			textCorreo.setText("");
-			textNoTelefono.setText("");
-			textEps.setText("");
-			textAlergias.setText("");
-			textFechaNacimiento.setText("");
-			textEstadoCivil.setText("");
+			try {
+				cr.create(textTipoDocumento.getText(), Integer.parseInt(textNoDocumento.getText()), textNombres.getText(), textApellidos.getText(), textDireccion.getText(), 
+				textCorreo.getText(), Integer.parseInt(textNoTelefono.getText()), textEps.getText(), textAlergias.getText(), textFechaNacimiento.getText(), textEstadoCivil.getText());
+				textTipoDocumento.setText("");
+				textNoDocumento.setText("");
+				textNombres.setText("");
+				textApellidos.setText("");
+				textDireccion.setText("");
+				textCorreo.setText("");
+				textNoTelefono.setText("");
+				textEps.setText("");
+				textAlergias.setText("");
+				textFechaNacimiento.setText("");
+				textEstadoCivil.setText("");
+			} catch (Exception e2) {
+				JOptionPane.showMessageDialog(null, "ingrese datos");
+			}
 			}
 		});
 		btnGuardar.setBounds(229, 178, 58, 63);
@@ -193,8 +198,12 @@ public class FrClientes extends JFrame {
 		JButton btnBorrar = new JButton("");
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.delete(Integer.parseInt(textIDClientes.getText()));
-				textIDClientes.setText("");
+				try {
+					cr.delete(Integer.parseInt(textIDClientes.getText()));
+					textIDClientes.setText("");	
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
@@ -213,7 +222,11 @@ public class FrClientes extends JFrame {
 		JButton btnRead = new JButton("");
 		btnRead.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.read(Integer.parseInt(textIDClientes.getText()), textTipoDocumento, textNoDocumento, textNombres, textApellidos, textDireccion, textCorreo, textNoTelefono, textEps, textAlergias, textFechaNacimiento, textEstadoCivil);
+				try {
+					cr.read(Integer.parseInt(textIDClientes.getText()), textTipoDocumento, textNoDocumento, textNombres, textApellidos, textDireccion, textCorreo, textNoTelefono, textEps, textAlergias, textFechaNacimiento, textEstadoCivil);
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnRead.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
@@ -223,19 +236,23 @@ public class FrClientes extends JFrame {
 		JButton btnUpdate = new JButton("");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.update(Integer.parseInt(textIDClientes.getText()), textTipoDocumento.getText(), Integer.parseInt(textNoDocumento.getText()), textNombres.getText(), textApellidos.getText(), textDireccion.getText(), textCorreo.getText(), Integer.parseInt(textNoTelefono.getText()), textEps.getText(), textAlergias.getText(), textFechaNacimiento.getText(), textEstadoCivil.getText());
-				textIDClientes.setText("");
-				textTipoDocumento.setText("");
-				textNoDocumento.setText("");
-				textNombres.setText("");
-				textApellidos.setText("");
-				textDireccion.setText("");
-				textCorreo.setText("");
-				textNoTelefono.setText("");
-				textEps.setText("");
-				textAlergias.setText("");
-				textFechaNacimiento.setText("");
-				textEstadoCivil.setText("");
+				try {
+					cr.update(Integer.parseInt(textIDClientes.getText()), textTipoDocumento.getText(), Integer.parseInt(textNoDocumento.getText()), textNombres.getText(), textApellidos.getText(), textDireccion.getText(), textCorreo.getText(), Integer.parseInt(textNoTelefono.getText()), textEps.getText(), textAlergias.getText(), textFechaNacimiento.getText(), textEstadoCivil.getText());
+					textIDClientes.setText("");
+					textTipoDocumento.setText("");
+					textNoDocumento.setText("");
+					textNombres.setText("");
+					textApellidos.setText("");
+					textDireccion.setText("");
+					textCorreo.setText("");
+					textNoTelefono.setText("");
+					textEps.setText("");
+					textAlergias.setText("");
+					textFechaNacimiento.setText("");
+					textEstadoCivil.setText("");
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));

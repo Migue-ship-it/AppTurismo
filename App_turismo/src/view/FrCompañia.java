@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import model.Compañia;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -64,13 +65,17 @@ public class FrCompañia extends JFrame {
 		btnGuardar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\326688_floppy_save_guardar_icon.png"));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
-			cr.create(Integer.parseInt(textTelefono.getText()),textDireccion.getText(),textFechaDeCreacion.getText(), textRazonSocial.getText(), textCorreo.getText(), textWeb.getText());
-			textTelefono.setText("");
-			textDireccion.setText("");
-			textFechaDeCreacion.setText("");
-			textRazonSocial.setText("");
-			textCorreo.setText("");
-			textWeb.setText("");
+			try {
+				cr.create(Integer.parseInt(textTelefono.getText()),textDireccion.getText(),textFechaDeCreacion.getText(), textRazonSocial.getText(), textCorreo.getText(), textWeb.getText());
+				textTelefono.setText("");
+				textDireccion.setText("");
+				textFechaDeCreacion.setText("");
+				textRazonSocial.setText("");
+				textCorreo.setText("");
+				textWeb.setText("");
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "ingrese datos");
+			}
 			}
 		});
 		btnGuardar.setBounds(247, 160, 65, 51);
@@ -137,8 +142,12 @@ public class FrCompañia extends JFrame {
 		JButton btnBorrar = new JButton("");
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.delete(Integer.parseInt(textIDCompañia.getText()));
-				textIDCompañia.setText("");
+				try {
+					cr.delete(Integer.parseInt(textIDCompañia.getText()));
+					textIDCompañia.setText("");
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
@@ -157,7 +166,11 @@ public class FrCompañia extends JFrame {
 		JButton btnGuardar_1 = new JButton("");
 		btnGuardar_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.read(Integer.parseInt(textIDCompañia.getText()), textTelefono, textDireccion, textFechaDeCreacion, textRazonSocial, textCorreo, textWeb);
+				try {
+					cr.read(Integer.parseInt(textIDCompañia.getText()), textTelefono, textDireccion, textFechaDeCreacion, textRazonSocial, textCorreo, textWeb);
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnGuardar_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
@@ -167,14 +180,19 @@ public class FrCompañia extends JFrame {
 		JButton btnUpdate = new JButton("");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.update(Integer.parseInt(textIDCompañia.getText()), Integer.parseInt(textTelefono.getText()), textDireccion.getText(),textFechaDeCreacion.getText(), textRazonSocial.getText(), textCorreo.getText(), textWeb.getText());
-				textIDCompañia.setText("");
-				textTelefono.setText("");
-				textDireccion.setText("");
-				textFechaDeCreacion.setText("");
-				textRazonSocial.setText("");
-				textCorreo.setText("");
-				textWeb.setText("");
+				try {
+					cr.update(Integer.parseInt(textIDCompañia.getText()), Integer.parseInt(textTelefono.getText()), textDireccion.getText(),textFechaDeCreacion.getText(), textRazonSocial.getText(), textCorreo.getText(), textWeb.getText());
+					textIDCompañia.setText("");
+					textTelefono.setText("");
+					textDireccion.setText("");
+					textFechaDeCreacion.setText("");
+					textRazonSocial.setText("");
+					textCorreo.setText("");
+					textWeb.setText("");
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+
+				}
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));

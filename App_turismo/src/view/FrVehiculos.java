@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import model.Vehiculos;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -35,7 +36,7 @@ public class FrVehiculos extends JFrame {
 	private JLabel lblidVehiculo;
 	Vehiculos cr = new Vehiculos();
 	private JButton btnBuscar;
-	private JButton btnUpdate;
+	private JButton btnActualizar;
 	/**
 	 * Launch the application.
 	 */
@@ -70,15 +71,19 @@ public class FrVehiculos extends JFrame {
 		btnGuardar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\326688_floppy_save_guardar_icon.png"));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
-				cr.datosVehiculos(textMatricula.getText(), textMarca.getText(), Integer.parseInt(textPuestos.getText()), textModelo.getText(), Integer.parseInt(textNoMotor.getText()),
-				textCategoria.getText(), Integer.parseInt(textIDTipoVehiculo.getText()));
-				textMatricula.setText("");
-				textMarca.setText("");
-				textPuestos.setText("");
-				textModelo.setText("");
-				textNoMotor.setText("");
-				textCategoria.setText("");
-				textIDTipoVehiculo.setText("");
+				try {
+					cr.datosVehiculos(textMatricula.getText(), textMarca.getText(), Integer.parseInt(textPuestos.getText()), textModelo.getText(), Integer.parseInt(textNoMotor.getText()),
+							textCategoria.getText(), Integer.parseInt(textIDTipoVehiculo.getText()));
+							textMatricula.setText("");
+							textMarca.setText("");
+							textPuestos.setText("");
+							textModelo.setText("");
+							textNoMotor.setText("");
+							textCategoria.setText("");
+							textIDTipoVehiculo.setText("");
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnGuardar.setBounds(181, 303, 65, 49);
@@ -154,8 +159,12 @@ public class FrVehiculos extends JFrame {
 		btnBorrar = new JButton("");
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
-				cr.delete(Integer.parseInt(textIDVehiculo.getText()));
-				textIDVehiculo.setText("");
+				try {
+					cr.delete(Integer.parseInt(textIDVehiculo.getText()));
+					textIDVehiculo.setText("");
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
@@ -174,31 +183,38 @@ public class FrVehiculos extends JFrame {
 		btnBuscar = new JButton("");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.read(Integer.parseInt(textIDVehiculo.getText()), textMatricula, textMarca, textPuestos, textModelo, textNoMotor, textCategoria, textIDTipoVehiculo);
-			}
+				try {
+					cr.read(Integer.parseInt(textIDVehiculo.getText()), textMatricula, textMarca, textPuestos, textModelo, textNoMotor, textCategoria, textIDTipoVehiculo);
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
+				}
 		});
 		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
 		btnBuscar.setBounds(256, 303, 42, 49);
 		vehiculosPane.add(btnBuscar);
 		
-		btnUpdate = new JButton("");
-		btnUpdate.addActionListener(new ActionListener() {
+		btnActualizar = new JButton("");
+		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.update(Integer.parseInt(textIDVehiculo.getText()),textMatricula.getText(), textMarca.getText(), Integer.parseInt(textPuestos.getText()), textModelo.getText(), Integer.parseInt(textNoMotor.getText()),
-				textCategoria.getText(), Integer.parseInt(textIDTipoVehiculo.getText()));
-				textIDVehiculo.setText("");
-				textMatricula.setText("");
-				textMarca.setText("");
-				textPuestos.setText("");
-				textModelo.setText("");
-				textNoMotor.setText("");
-				textCategoria.setText("");
-				textIDTipoVehiculo.setText("");
+				try {
+					cr.update(Integer.parseInt(textIDVehiculo.getText()),textMatricula.getText(), textMarca.getText(), Integer.parseInt(textPuestos.getText()), textModelo.getText(), Integer.parseInt(textNoMotor.getText()),
+							textCategoria.getText(), Integer.parseInt(textIDTipoVehiculo.getText()));
+							textIDVehiculo.setText("");
+							textMatricula.setText("");
+							textMarca.setText("");
+							textPuestos.setText("");
+							textModelo.setText("");
+							textNoMotor.setText("");
+							textCategoria.setText("");
+							textIDTipoVehiculo.setText("");
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
-		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
-		btnUpdate.setBounds(308, 303, 52, 50);
-		vehiculosPane.add(btnUpdate);
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
+		btnActualizar.setBounds(308, 303, 52, 50);
+		vehiculosPane.add(btnActualizar);
 	}
-
 }

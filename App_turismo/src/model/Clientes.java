@@ -109,8 +109,7 @@ public class Clientes {
 	
 	public void create(String tipodocumento, int numerodocumento, String nombres, String apellidos, String direccion, String correoelectronico, int numerotelefonico, String eps,
 	String alergias, String fechanacimiento, String estadocivil) {
-		String script = "INSERT INTO tblclientes (tipodocumento, numerodocumento, nombres, apellidos, direccion, correoelectronico, numerotelefonico, eps, alergias, fechanacimiento, estadocivil)"
-		+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String script = "INSERT INTO tblclientes (tipodocumento, numerodocumento, nombres, apellidos, direccion, correoelectronico, numerotelefonico, eps, alergias, fechanacimiento, estadocivil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conexionBD = conector.conectarBD();
 			pst = conexionBD.prepareStatement(script);
@@ -173,8 +172,7 @@ public class Clientes {
 	}
 	public void update(int idclientes, String tipodocumento, int numerodocumento, String nombres, String apellidos, String direccion, String correoelectronico, int numerotelefonico, String eps,
 			String alergias, String fechanacimiento, String estadocivil) {
-		String script = "UPDATE tblclientes set tipodocumento = ?, numerodocumento = ?, nombres = ?, apellidos = ?, direccion = ?, correoelectronico = ?, numerotelefonico = ?, eps = ?,"
-				+ "alergias = ?, fechanacimiento = ?, estadocivil = ? where idclientes = ?";
+		String script = "UPDATE tblclientes set tipodocumento = ?, numerodocumento = ?, nombres = ?, apellidos = ?, direccion = ?, correoelectronico = ?, numerotelefonico = ?, eps = ?, alergias = ?, fechanacimiento = ?, estadocivil = ? where idclientes = ?";
 		try {
 			conexionBD = conector.conectarBD();
 			pst = conexionBD.prepareStatement(script);

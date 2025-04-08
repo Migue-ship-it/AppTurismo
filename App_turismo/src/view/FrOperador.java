@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import model.Operador;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -69,16 +70,20 @@ public class FrOperador extends JFrame {
 		btnGuardar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\326688_floppy_save_guardar_icon.png"));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
-				cr.datosOperador(textNombres.getText(), textApellidos.getText(), textCorreo.getText(), Integer.parseInt(textNoTelefono.getText()), textTipoDocumento.getText(), 
-				Integer.parseInt(textNoDocumento.getText()), textDireccion.getText(), Integer.parseInt(textIDVehiculo.getText()));
-				textNombres.setText("");
-				textApellidos.setText("");
-				textCorreo.setText("");
-				textNoTelefono.setText("");
-				textTipoDocumento.setText("");
-				textNoDocumento.setText("");
-				textDireccion.setText("");
-				textIDVehiculo.setText("");
+				try {
+					cr.datosOperador(textNombres.getText(), textApellidos.getText(), textCorreo.getText(), Integer.parseInt(textNoTelefono.getText()), textTipoDocumento.getText(), 
+					Integer.parseInt(textNoDocumento.getText()), textDireccion.getText(), Integer.parseInt(textIDVehiculo.getText()));
+					textNombres.setText("");
+					textApellidos.setText("");
+					textCorreo.setText("");
+					textNoTelefono.setText("");
+					textTipoDocumento.setText("");
+					textNoDocumento.setText("");
+					textDireccion.setText("");
+					textIDVehiculo.setText("");
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnGuardar.setBounds(274, 153, 65, 49);
@@ -163,8 +168,12 @@ public class FrOperador extends JFrame {
 		btnBorrar = new JButton("");
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.delete(Integer.parseInt(textIDOperador.getText()));
-				textIDOperador.setText("");
+				try {
+					cr.delete(Integer.parseInt(textIDOperador.getText()));
+					textIDOperador.setText("");
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
@@ -183,7 +192,11 @@ public class FrOperador extends JFrame {
 		btnBuscar = new JButton("");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.read(Integer.parseInt(textIDOperador.getText()), textNombres, textApellidos, textCorreo, textNoTelefono, textTipoDocumento, textNoDocumento, textDireccion, textIDVehiculo);
+				try {
+					cr.read(Integer.parseInt(textIDOperador.getText()), textNombres, textApellidos, textCorreo, textNoTelefono, textTipoDocumento, textNoDocumento, textDireccion, textIDVehiculo);
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
@@ -193,17 +206,21 @@ public class FrOperador extends JFrame {
 		btnUpdate = new JButton("");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.update(Integer.parseInt(textIDOperador.getText()), textNombres.getText(), textApellidos.getText(), textCorreo.getText(), Integer.parseInt(textNoTelefono.getText()), textTipoDocumento.getText(), 
-				Integer.parseInt(textNoDocumento.getText()), textDireccion.getText(), Integer.parseInt(textIDVehiculo.getText()));
-				textIDOperador.setText("");
-				textNombres.setText("");
-				textApellidos.setText("");
-				textCorreo.setText("");
-				textNoTelefono.setText("");
-				textTipoDocumento.setText("");
-				textNoDocumento.setText("");
-				textDireccion.setText("");
-				textIDVehiculo.setText("");
+				try {
+					cr.update(Integer.parseInt(textIDOperador.getText()), textNombres.getText(), textApellidos.getText(), textCorreo.getText(), Integer.parseInt(textNoTelefono.getText()), textTipoDocumento.getText(), 
+					Integer.parseInt(textNoDocumento.getText()), textDireccion.getText(), Integer.parseInt(textIDVehiculo.getText()));
+					textIDOperador.setText("");
+					textNombres.setText("");
+					textApellidos.setText("");
+					textCorreo.setText("");
+					textNoTelefono.setText("");
+					textTipoDocumento.setText("");
+					textNoDocumento.setText("");
+					textDireccion.setText("");
+					textIDVehiculo.setText("");
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));

@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import model.Agencia;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -110,13 +111,17 @@ public class FrAgencia extends JFrame {
 		btnGuardar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\326688_floppy_save_guardar_icon.png"));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
-				cr.create(textNombre.getText(), Integer.parseInt(textTelefono.getText()), textDireccion.getText(), textWeb.getText(), textCorreo.getText(), Integer.parseInt(textidCompañia.getText()));
-				textNombre.setText("");
-				textTelefono.setText("");
-				textDireccion.setText("");
-				textWeb.setText("");
-				textCorreo.setText("");
-				textidCompañia.setText("");
+				try {
+					cr.create(textNombre.getText(), Integer.parseInt(textTelefono.getText()), textDireccion.getText(), textWeb.getText(), textCorreo.getText(), Integer.parseInt(textidCompañia.getText()));
+					textNombre.setText("");
+					textTelefono.setText("");
+					textDireccion.setText("");
+					textWeb.setText("");
+					textCorreo.setText("");
+					textidCompañia.setText("");
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 				}
 		});
 		btnGuardar.setBounds(312, 205, 57, 50);
@@ -138,8 +143,12 @@ public class FrAgencia extends JFrame {
 		JButton btnBorrar = new JButton("");
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
-				cr.delete(Integer.parseInt(textidAgencia.getText()));
-				textidAgencia.setText("");
+				try {
+					cr.delete(Integer.parseInt(textidAgencia.getText()));
+					textidAgencia.setText("");
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
@@ -158,7 +167,11 @@ public class FrAgencia extends JFrame {
 		JButton btnRead = new JButton("");
 		btnRead.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.read(Integer.parseInt(textidAgencia.getText()), textNombre, textTelefono, textDireccion, textWeb, textCorreo, textidCompañia);
+				try {
+					cr.read(Integer.parseInt(textidAgencia.getText()), textNombre, textTelefono, textDireccion, textWeb, textCorreo, textidCompañia);
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnRead.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
@@ -168,14 +181,18 @@ public class FrAgencia extends JFrame {
 		JButton btnUpdate = new JButton("");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.update(Integer.parseInt(textidAgencia.getText()), textNombre.getText(), Integer.parseInt(textTelefono.getText()), textDireccion.getText(), textWeb.getText(), textCorreo.getText(), Integer.parseInt(textidCompañia.getText()));
-				textidAgencia.setText("");
-				textNombre.setText("");
-				textTelefono.setText("");
-				textDireccion.setText("");
-				textWeb.setText("");
-				textCorreo.setText("");
-				textidCompañia.setText("");
+				try {
+					cr.update(Integer.parseInt(textidAgencia.getText()), textNombre.getText(), Integer.parseInt(textTelefono.getText()), textDireccion.getText(), textWeb.getText(), textCorreo.getText(), Integer.parseInt(textidCompañia.getText()));
+					textidAgencia.setText("");
+					textNombre.setText("");
+					textTelefono.setText("");
+					textDireccion.setText("");
+					textWeb.setText("");
+					textCorreo.setText("");
+					textidCompañia.setText("");
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));

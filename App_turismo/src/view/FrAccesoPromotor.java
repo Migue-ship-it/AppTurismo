@@ -18,6 +18,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import java.awt.Color;
 
 public class FrAccesoPromotor extends JFrame {
 
@@ -66,11 +67,15 @@ public class FrAccesoPromotor extends JFrame {
 		contentPane.add(lblContraseña);
 		
 		JButton btnRegistrar = new JButton("");
+		btnRegistrar.setBackground(new Color(0, 255, 0));
+		btnRegistrar.setForeground(new Color(0, 0, 0));
 		btnRegistrar.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 			try {
 				cr.controlacceso(Integer.parseInt(textDocumento.getText()), passwordField.getText());
+				textDocumento.setText("");
+				passwordField.setText("");
 			} catch (Exception erroringresodatos) {
 				JOptionPane.showMessageDialog(null, "ingrese datos");
 			}

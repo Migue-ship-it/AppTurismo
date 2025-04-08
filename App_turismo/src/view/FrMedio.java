@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import model.Medio;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -59,10 +60,14 @@ public class FrMedio extends JFrame {
 		btnGuardar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\326688_floppy_save_guardar_icon.png"));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
-				cr.datosMedio(textNombre.getText(), textObservacion.getText(), Integer.parseInt(textIDTipo.getText()));
-				textNombre.setText("");
-				textObservacion.setText("");
-				textIDTipo.setText("");
+				try {
+					cr.datosMedio(textNombre.getText(), textObservacion.getText(), Integer.parseInt(textIDTipo.getText()));
+					textNombre.setText("");
+					textObservacion.setText("");
+					textIDTipo.setText("");
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnGuardar.setBounds(158, 246, 56, 52);
@@ -102,8 +107,12 @@ public class FrMedio extends JFrame {
 		JButton btnBorrar = new JButton("");
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
+				try {
 				cr.delete(Integer.parseInt(textIDMedio.getText()));
 				textIDMedio.setText("");
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
@@ -122,8 +131,12 @@ public class FrMedio extends JFrame {
 		JButton btnBuscar = new JButton("");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.read(Integer.parseInt(textIDMedio.getText()), textNombre, textObservacion, textIDTipo);
-			}
+				try {
+					cr.read(Integer.parseInt(textIDMedio.getText()), textNombre, textObservacion, textIDTipo);
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
+				}
 		});
 		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
 		btnBuscar.setBounds(290, 246, 56, 52);
@@ -132,11 +145,15 @@ public class FrMedio extends JFrame {
 		JButton btnUpdate = new JButton("");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.update(Integer.parseInt(textIDMedio.getText()), textNombre.getText(), textObservacion.getText(), Integer.parseInt(textIDTipo.getText()));
-				textIDMedio.setText("");
-				textNombre.setText("");
-				textObservacion.setText("");
-				textIDTipo.setText("");
+				try {
+					cr.update(Integer.parseInt(textIDMedio.getText()), textNombre.getText(), textObservacion.getText(), Integer.parseInt(textIDTipo.getText()));
+					textIDMedio.setText("");
+					textNombre.setText("");
+					textObservacion.setText("");
+					textIDTipo.setText("");
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));

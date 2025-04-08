@@ -22,6 +22,7 @@ public class Promotor {
 	public String correocorp;
 	public String direccion;
 	public String fechanacimiento;
+	public String password;
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
 	PreparedStatement pst = null; //preparar la transaccion
@@ -93,7 +94,18 @@ public class Promotor {
 	public void setIdpromotor(int idpromotor) {
 		this.idpromotor = idpromotor;
 	}
-	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public FrPrincipal getPrincipal() {
+		return principal;
+	}
+	public void setPrincipal(FrPrincipal principal) {
+		this.principal = principal;
+	}
 	public void create(String nombres, String apellidos, String correopersonal, int numerotelefonico, String tipodocumento, int documento, String correocorp, String direccion, String fechanacimiento) {
 		String script = " INSERT INTO tblpromotor (nombres, apellidos, correopersonal, numerotelefonico, tipodocumento, documento, correocorp, direccion, fechanacimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {

@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import model.Promotor;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -69,17 +70,21 @@ public class FrPromotor extends JFrame {
 		btnGuardar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\326688_floppy_save_guardar_icon.png"));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
-				cr.create(textNombres.getText(), textApellidos.getText(), textCorreoPersonal.getText(), Integer.parseInt(textNoTelefono.getText()), textTipoDocumento.getText(),
-				Integer.parseInt(textNoDocumento.getText()), textCorreoCorporativo.getText(), textDireccion.getText(), textFechaNacimiento.getText());
-				textNombres.setText("");
-				textApellidos.setText("");
-				textCorreoPersonal.setText("");
-				textNoTelefono.setText("");
-				textTipoDocumento.setText("");
-				textNoDocumento.setText("");
-				textCorreoCorporativo.setText("");
-				textDireccion.setText("");
-				textFechaNacimiento.setText("");
+				try {
+					cr.create(textNombres.getText(), textApellidos.getText(), textCorreoPersonal.getText(), Integer.parseInt(textNoTelefono.getText()), textTipoDocumento.getText(),
+							Integer.parseInt(textNoDocumento.getText()), textCorreoCorporativo.getText(), textDireccion.getText(), textFechaNacimiento.getText());
+							textNombres.setText("");
+							textApellidos.setText("");
+							textCorreoPersonal.setText("");
+							textNoTelefono.setText("");
+							textTipoDocumento.setText("");
+							textNoDocumento.setText("");
+							textCorreoCorporativo.setText("");
+							textDireccion.setText("");
+							textFechaNacimiento.setText("");
+				} catch (Exception erroringresodatos) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnGuardar.setBounds(293, 217, 57, 52);
@@ -173,8 +178,12 @@ public class FrPromotor extends JFrame {
 		btnBorrar = new JButton("");
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
-				cr.delete(Integer.parseInt(textIDPromotor.getText()));
-				textIDPromotor.setText("");
+				try {
+					cr.delete(Integer.parseInt(textIDPromotor.getText()));
+					textIDPromotor.setText("");
+				} catch (Exception erroringresodatos) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
@@ -193,7 +202,11 @@ public class FrPromotor extends JFrame {
 		JButton btnRead = new JButton("");
 		btnRead.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.read(Integer.parseInt(textIDPromotor.getText()), textNombres, textApellidos, textCorreoPersonal, textNoTelefono, textTipoDocumento, textNoDocumento, textCorreoCorporativo, textDireccion, textFechaNacimiento);
+				try {
+					cr.read(Integer.parseInt(textIDPromotor.getText()), textNombres, textApellidos, textCorreoPersonal, textNoTelefono, textTipoDocumento, textNoDocumento, textCorreoCorporativo, textDireccion, textFechaNacimiento);
+				} catch (Exception erroringresodatos) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnRead.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
@@ -203,18 +216,22 @@ public class FrPromotor extends JFrame {
 		btnUpdate = new JButton("");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cr.update(Integer.parseInt(textIDPromotor.getText()), textNombres.getText(), textApellidos.getText(), textCorreoPersonal.getText(), Integer.parseInt(textNoTelefono.getText()), textTipoDocumento.getText(),
-				Integer.parseInt(textNoDocumento.getText()), textCorreoCorporativo.getText(), textDireccion.getText(), textFechaNacimiento.getText());
-				textIDPromotor.setText("");
-				textNombres.setText("");
-				textApellidos.setText("");
-				textCorreoPersonal.setText("");
-				textNoTelefono.setText("");
-				textTipoDocumento.setText("");
-				textNoDocumento.setText("");
-				textCorreoCorporativo.setText("");
-				textDireccion.setText("");
-				textFechaNacimiento.setText("");
+				try {
+					cr.update(Integer.parseInt(textIDPromotor.getText()), textNombres.getText(), textApellidos.getText(), textCorreoPersonal.getText(), Integer.parseInt(textNoTelefono.getText()), textTipoDocumento.getText(),
+							Integer.parseInt(textNoDocumento.getText()), textCorreoCorporativo.getText(), textDireccion.getText(), textFechaNacimiento.getText());
+							textIDPromotor.setText("");
+							textNombres.setText("");
+							textApellidos.setText("");
+							textCorreoPersonal.setText("");
+							textNoTelefono.setText("");
+							textTipoDocumento.setText("");
+							textNoDocumento.setText("");
+							textCorreoCorporativo.setText("");
+							textDireccion.setText("");
+							textFechaNacimiento.setText("");
+				} catch (Exception erroringresodatos) {
+					JOptionPane.showMessageDialog(null, "ingrese datos");
+				}
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));

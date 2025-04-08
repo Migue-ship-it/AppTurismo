@@ -11,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Font;
 
 public class FrPrincipal extends JFrame {
 
@@ -36,54 +38,82 @@ public class FrPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public FrPrincipal() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\2620519_employee_hierarchy_job_seeker_unemployee_icon.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setBackground(new Color(255, 250, 250));
+		setType(Type.UTILITY);
+		setTitle("GESTION DE REGISTROS");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\2620519_employee_hierarchy_job_seeker_unemployee_icon.png"));
 		setBounds(100, 100, 467, 300);
 		getContentPane().setLayout(null);
 		
 		JLabel lblAgencia = new JLabel("Agencia");
-		lblAgencia.setBounds(42, 40, 69, 14);
+		lblAgencia.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblAgencia.setForeground(Color.ORANGE);
+		lblAgencia.setBounds(42, 26, 69, 14);
 		getContentPane().add(lblAgencia);
 		
 		JLabel lblClientes = new JLabel("Clientes");
-		lblClientes.setBounds(121, 40, 69, 14);
+		lblClientes.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblClientes.setBounds(121, 26, 69, 14);
 		getContentPane().add(lblClientes);
 		
 		JLabel lblCompañia = new JLabel("Compañia");
-		lblCompañia.setBounds(200, 40, 69, 14);
+		lblCompañia.setForeground(new Color(0, 128, 255));
+		lblCompañia.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblCompañia.setBackground(new Color(0, 0, 0));
+		lblCompañia.setBounds(200, 26, 69, 14);
 		getContentPane().add(lblCompañia);
 		
 		JLabel lblMedio = new JLabel("Medio");
-		lblMedio.setBounds(293, 40, 69, 14);
+		lblMedio.setForeground(new Color(255, 34, 145));
+		lblMedio.setBackground(new Color(0, 0, 0));
+		lblMedio.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblMedio.setBounds(293, 26, 69, 14);
 		getContentPane().add(lblMedio);
 		
 		JLabel lblOperador = new JLabel("Operador");
-		lblOperador.setBounds(372, 40, 69, 14);
+		lblOperador.setForeground(new Color(83, 83, 255));
+		lblOperador.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblOperador.setBounds(372, 26, 69, 14);
 		lblOperador.setIcon(null);
 		getContentPane().add(lblOperador);
 		
 		JLabel lblPaquetes = new JLabel("Paquetes");
-		lblPaquetes.setBounds(42, 157, 69, 14);
+		lblPaquetes.setForeground(new Color(114, 56, 56));
+		lblPaquetes.setBackground(new Color(0, 0, 0));
+		lblPaquetes.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblPaquetes.setBounds(29, 127, 69, 14);
 		getContentPane().add(lblPaquetes);
 		
 		JLabel lblPromotor = new JLabel("Promotor");
-		lblPromotor.setBounds(121, 157, 69, 14);
+		lblPromotor.setForeground(new Color(191, 125, 125));
+		lblPromotor.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblPromotor.setBounds(108, 127, 69, 14);
 		getContentPane().add(lblPromotor);
 		
 		JLabel lblTiposMedio = new JLabel("Tipos Medio");
-		lblTiposMedio.setBounds(196, 157, 69, 14);
+		lblTiposMedio.setForeground(new Color(0, 204, 51));
+		lblTiposMedio.setBackground(new Color(0, 0, 0));
+		lblTiposMedio.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblTiposMedio.setBounds(187, 127, 82, 14);
 		getContentPane().add(lblTiposMedio);
 		
-		JLabel lblTiposTransporte = new JLabel("Tipos Transporte");
-		lblTiposTransporte.setBounds(275, 152, 83, 24);
+		JLabel lblTiposTransporte = new JLabel("Tipos Vehiculos");
+		lblTiposTransporte.setForeground(new Color(128, 128, 192));
+		lblTiposTransporte.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblTiposTransporte.setBounds(275, 122, 105, 24);
 		getContentPane().add(lblTiposTransporte);
 		
 		JLabel lblVehiculos = new JLabel("Vehiculos");
-		lblVehiculos.setBounds(382, 157, 69, 14);
+		lblVehiculos.setForeground(new Color(255, 108, 182));
+		lblVehiculos.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblVehiculos.setBounds(382, 128, 69, 14);
 		getContentPane().add(lblVehiculos);
 		
 		JButton btnAgencia = new JButton("");
-		btnAgencia.setBounds(42, 76, 45, 49);
+		btnAgencia.setBackground(new Color(250, 250, 210));
+		btnAgencia.setForeground(Color.BLACK);
+		btnAgencia.setBounds(42, 51, 45, 49);
 		btnAgencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrAgencia agencia = new FrAgencia(); //llamar al frame de la clase FrAgencia
@@ -94,7 +124,8 @@ public class FrPrincipal extends JFrame {
 		getContentPane().add(btnAgencia);
 		
 		JButton btnClientes = new JButton("");
-		btnClientes.setBounds(121, 76, 45, 49);
+		btnClientes.setBackground(new Color(192, 192, 192));
+		btnClientes.setBounds(121, 51, 45, 49);
 		btnClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrClientes cliente = new FrClientes();
@@ -105,7 +136,8 @@ public class FrPrincipal extends JFrame {
 		getContentPane().add(btnClientes);
 		
 		JButton btnCompañia = new JButton("");
-		btnCompañia.setBounds(196, 76, 51, 49);
+		btnCompañia.setBackground(new Color(135, 206, 250));
+		btnCompañia.setBounds(200, 51, 51, 49);
 		btnCompañia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrCompañia compañia = new FrCompañia();
@@ -116,7 +148,9 @@ public class FrPrincipal extends JFrame {
 		getContentPane().add(btnCompañia);
 		
 		JButton btnMedio = new JButton("");
-		btnMedio.setBounds(285, 76, 51, 49);
+		btnMedio.setBackground(new Color(255, 26, 140));
+		btnMedio.setForeground(new Color(0, 0, 0));
+		btnMedio.setBounds(285, 51, 51, 49);
 		btnMedio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrMedio medio = new FrMedio();
@@ -127,7 +161,8 @@ public class FrPrincipal extends JFrame {
 		getContentPane().add(btnMedio);
 		
 		JButton btnOperador = new JButton("");
-		btnOperador.setBounds(371, 76, 58, 49);
+		btnOperador.setBackground(new Color(43, 43, 255));
+		btnOperador.setBounds(372, 51, 58, 49);
 		btnOperador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrOperador operador = new FrOperador();
@@ -138,7 +173,8 @@ public class FrPrincipal extends JFrame {
 		getContentPane().add(btnOperador);
 		
 		JButton btnPaquetes = new JButton("");
-		btnPaquetes.setBounds(41, 201, 46, 49);
+		btnPaquetes.setBackground(new Color(182, 107, 107));
+		btnPaquetes.setBounds(39, 157, 46, 49);
 		btnPaquetes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrPaquetes paquete = new FrPaquetes();
@@ -149,7 +185,8 @@ public class FrPrincipal extends JFrame {
 		getContentPane().add(btnPaquetes);
 		
 		JButton btnPromotor = new JButton("");
-		btnPromotor.setBounds(121, 201, 45, 49);
+		btnPromotor.setBackground(new Color(170, 0, 85));
+		btnPromotor.setBounds(118, 157, 45, 49);
 		btnPromotor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrPromotor promotor = new FrPromotor();
@@ -160,7 +197,8 @@ public class FrPrincipal extends JFrame {
 		getContentPane().add(btnPromotor);
 		
 		JButton btnTiposMedio = new JButton("");
-		btnTiposMedio.setBounds(196, 201, 51, 49);
+		btnTiposMedio.setBackground(new Color(0, 255, 0));
+		btnTiposMedio.setBounds(197, 157, 51, 49);
 		btnTiposMedio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrTiposMedio tiposmedio = new FrTiposMedio();
@@ -171,7 +209,8 @@ public class FrPrincipal extends JFrame {
 		getContentPane().add(btnTiposMedio);
 		
 		JButton btnTiposTransporte = new JButton("");
-		btnTiposTransporte.setBounds(285, 201, 51, 49);
+		btnTiposTransporte.setBackground(new Color(217, 207, 254));
+		btnTiposTransporte.setBounds(293, 157, 51, 49);
 		btnTiposTransporte.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrTiposTransporte tipostransporte = new FrTiposTransporte();
@@ -182,7 +221,9 @@ public class FrPrincipal extends JFrame {
 		getContentPane().add(btnTiposTransporte);
 		
 		JButton btnVehiculos = new JButton("");
-		btnVehiculos.setBounds(374, 201, 55, 49);
+		btnVehiculos.setBackground(new Color(255, 128, 128));
+		btnVehiculos.setForeground(new Color(0, 0, 0));
+		btnVehiculos.setBounds(386, 153, 55, 49);
 		btnVehiculos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrVehiculos vehiculo = new FrVehiculos();
