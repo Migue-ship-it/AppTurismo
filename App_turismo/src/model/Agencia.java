@@ -81,8 +81,14 @@ public class Agencia {
 			pst.setString(4, web);
 			pst.setString(5, correo);
 			pst.setInt(6, idcompañia);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea crear un nuevo registro?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
 			pst.executeUpdate();
-			JOptionPane.showMessageDialog(null, "Registro con exito");
+			JOptionPane.showMessageDialog(null, "Registro creado");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se creo ningun registro");
+			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -98,6 +104,9 @@ public class Agencia {
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "ID " +idagencia + "eliminado");
 			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se borro ningun registro");
+			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -109,6 +118,8 @@ public class Agencia {
 			pst = conexionBD.prepareStatement(script);
 			pst.setInt(1, idagencia);
 			ResultSet rs = pst.executeQuery();
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea leer el registro perteneciente al id # "+idagencia +"?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
 			while (rs.next()) {
 				nombre.setText(rs.getString(2));
 				telefono.setText(rs.getString(3));
@@ -116,6 +127,11 @@ public class Agencia {
 				web.setText(rs.getString(5));
 				correo.setText(rs.getString(6));
 				idcompañia.setText(rs.getString(7));
+				JOptionPane.showMessageDialog(null, "Lectura de registro del ID # " +idagencia + " finalizada");
+			}
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se leyo ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -137,6 +153,9 @@ public class Agencia {
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "ID "+idagencia+" actualizado");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se modifico ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());

@@ -124,8 +124,14 @@ public class Clientes {
 			pst.setString(9, alergias);
 			pst.setString(10, fechanacimiento);
 			pst.setString(11, estadocivil);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea crear un nuevo registro?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
 			pst.executeUpdate();
-			JOptionPane.showMessageDialog(null, "Registro con exito");
+			JOptionPane.showMessageDialog(null, "Registro creado");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se creo ningun registro");
+			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -136,10 +142,13 @@ public class Clientes {
 			conexionBD = conector.conectarBD(); //abrir la conexion
 			pst = conexionBD.prepareStatement(script); //abrir el buffer
 			pst.setInt(1, idclientes); //parametrizar el campo
-			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar el registro perteneciente al id # "+ idclientes +"?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate(); // confirmar la operacion
-				JOptionPane.showMessageDialog(null, "fila eliminada");
+				JOptionPane.showMessageDialog(null, "ID" + idclientes +" eliminada");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se borro ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -153,6 +162,8 @@ public class Clientes {
 			pst = conexionBD.prepareStatement(script);
 			pst.setInt(1, idclientes);
 			ResultSet rs = pst.executeQuery(); //almacenamiento temporal
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea leer el registro perteneciente al id # "+idclientes +"?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
 			while (rs.next()) {
 				tipodocumento.setText(rs.getString(2));
 				documento.setText(rs.getString(3));
@@ -165,6 +176,10 @@ public class Clientes {
 				alergias.setText(rs.getString(10));
 				fechanacimiento.setText(rs.getString(11));
 				estadocivil.setText(rs.getString(12));
+			}
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se leyo ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -192,6 +207,9 @@ public class Clientes {
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "ID "+idclientes+" actualizado");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se modifico ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());

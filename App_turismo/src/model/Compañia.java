@@ -81,8 +81,14 @@ public class Compañia {
 			pst.setString(4, razonsocial);
 			pst.setString(5, correo);
 			pst.setString(6, web);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea crear un nuevo registro?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Registro con exito");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se creo ningun registro");
+			}
 		} catch (SQLException errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -93,10 +99,13 @@ public class Compañia {
 			conexionBD = conector.conectarBD();
 			pst = conexionBD.prepareStatement(script);
 			pst.setInt(1, idcompañia);
-			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar el registro perteneciente al id # "+ idcompañia +"?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showMessageDialog(null, "fila eliminada");
+				JOptionPane.showMessageDialog(null, "ID " + idcompañia + " eliminada");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se borro ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -109,6 +118,8 @@ public class Compañia {
 			pst = conexionBD.prepareStatement(script);
 			pst.setInt(1, idcompañia);
 			ResultSet rs = pst.executeQuery();
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea leer el registro perteneciente al id # "+idcompañia +"?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
 			while (rs.next()) {
 				telefono.setText(rs.getString(2));
 				direccion.setText(rs.getString(3));
@@ -116,6 +127,10 @@ public class Compañia {
 				razonsocial.setText(rs.getString(5));
 				correo.setText(rs.getString(6));
 				web.setText(rs.getString(7));
+			}
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se leyo ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -138,9 +153,11 @@ public class Compañia {
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "ID "+idcompañia+" actualizado");
 			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se modifico ningun registro");
+			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
 	}
-	
 }

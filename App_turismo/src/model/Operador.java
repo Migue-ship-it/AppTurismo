@@ -84,7 +84,7 @@ public class Operador {
 		this.idoperador = idoperador;
 	}
 	
-	public void datosOperador(String nombres, String apellidos, String correoelectronico, int numerotelefonico, String tipodocumento, int documento, String direccion, int idvehiculo) {
+	public void create(String nombres, String apellidos, String correoelectronico, int numerotelefonico, String tipodocumento, int documento, String direccion, int idvehiculo) {
 		String script = "INSERT INTO tbloperador (nombres, apellidos, correoelectronico, numerotelefonico, tipodocumento, documento, direccion, idvehiculo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conexionBD = conector.conectarBD();
@@ -97,8 +97,14 @@ public class Operador {
 			pst.setInt(6, documento);
 			pst.setString(7, direccion);
 			pst.setInt(8, idvehiculo);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea crear un nuevo registro?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Registro con exito");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se creo ningun registro");
+			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -109,10 +115,13 @@ public class Operador {
 			conexionBD = conector.conectarBD();
 			pst = conexionBD.prepareStatement(script);
 			pst.setInt(1, idoperador);
-			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar el registro perteneciente al id # "+ idoperador + " ?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "fila eliminada");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se borro ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -125,6 +134,8 @@ public class Operador {
 			pst = conexionBD.prepareStatement(script);
 			pst.setInt(1, idoperador);
 			ResultSet rs = pst.executeQuery(); //almacenamiento temporal
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea leer el registro perteneciente al id # "+idoperador +"?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
 			while (rs.next()) {
 				nombres.setText(rs.getString(2));
 				apellidos.setText(rs.getString(3));
@@ -134,6 +145,10 @@ public class Operador {
 				documento.setText(rs.getString(7));
 				direccion.setText(rs.getString(8));
 				idvehiculo.setText(rs.getString(9));
+			}
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se leyo ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -158,9 +173,11 @@ public class Operador {
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "ID "+ idoperador +" actualizado");
 			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se modifico ningun registro");
+			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
 	}
-	
 }

@@ -113,15 +113,15 @@ public class FrAgencia extends JFrame {
 			public void actionPerformed(ActionEvent evento) {
 				try {
 					cr.create(textNombre.getText(), Integer.parseInt(textTelefono.getText()), textDireccion.getText(), textWeb.getText(), textCorreo.getText(), Integer.parseInt(textidCompañia.getText()));
-					textNombre.setText("");
-					textTelefono.setText("");
-					textDireccion.setText("");
-					textWeb.setText("");
-					textCorreo.setText("");
-					textidCompañia.setText("");
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textNombre.setText("");
+				textTelefono.setText("");
+				textDireccion.setText("");
+				textWeb.setText("");
+				textCorreo.setText("");
+				textidCompañia.setText("");
 				}
 		});
 		btnGuardar.setBounds(312, 205, 57, 50);
@@ -145,10 +145,10 @@ public class FrAgencia extends JFrame {
 			public void actionPerformed(ActionEvent evento) {
 				try {
 					cr.delete(Integer.parseInt(textidAgencia.getText()));
-					textidAgencia.setText("");
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textidAgencia.setText("");
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
@@ -183,16 +183,16 @@ public class FrAgencia extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					cr.update(Integer.parseInt(textidAgencia.getText()), textNombre.getText(), Integer.parseInt(textTelefono.getText()), textDireccion.getText(), textWeb.getText(), textCorreo.getText(), Integer.parseInt(textidCompañia.getText()));
-					textidAgencia.setText("");
-					textNombre.setText("");
-					textTelefono.setText("");
-					textDireccion.setText("");
-					textWeb.setText("");
-					textCorreo.setText("");
-					textidCompañia.setText("");
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textidAgencia.setText("");
+				textNombre.setText("");
+				textTelefono.setText("");
+				textDireccion.setText("");
+				textWeb.setText("");
+				textCorreo.setText("");
+				textidCompañia.setText("");
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));

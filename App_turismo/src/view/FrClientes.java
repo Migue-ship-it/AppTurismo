@@ -122,20 +122,20 @@ public class FrClientes extends JFrame {
 			try {
 				cr.create(textTipoDocumento.getText(), Integer.parseInt(textNoDocumento.getText()), textNombres.getText(), textApellidos.getText(), textDireccion.getText(), 
 				textCorreo.getText(), Integer.parseInt(textNoTelefono.getText()), textEps.getText(), textAlergias.getText(), textFechaNacimiento.getText(), textEstadoCivil.getText());
-				textTipoDocumento.setText("");
-				textNoDocumento.setText("");
-				textNombres.setText("");
-				textApellidos.setText("");
-				textDireccion.setText("");
-				textCorreo.setText("");
-				textNoTelefono.setText("");
-				textEps.setText("");
-				textAlergias.setText("");
-				textFechaNacimiento.setText("");
-				textEstadoCivil.setText("");
 			} catch (Exception e2) {
 				JOptionPane.showMessageDialog(null, "ingrese datos");
 			}
+			textTipoDocumento.setText("");
+			textNoDocumento.setText("");
+			textNombres.setText("");
+			textApellidos.setText("");
+			textDireccion.setText("");
+			textCorreo.setText("");
+			textNoTelefono.setText("");
+			textEps.setText("");
+			textAlergias.setText("");
+			textFechaNacimiento.setText("");
+			textEstadoCivil.setText("");
 			}
 		});
 		btnGuardar.setBounds(229, 178, 58, 63);
@@ -200,10 +200,10 @@ public class FrClientes extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					cr.delete(Integer.parseInt(textIDClientes.getText()));
-					textIDClientes.setText("");	
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textIDClientes.setText("");	
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
@@ -238,21 +238,21 @@ public class FrClientes extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					cr.update(Integer.parseInt(textIDClientes.getText()), textTipoDocumento.getText(), Integer.parseInt(textNoDocumento.getText()), textNombres.getText(), textApellidos.getText(), textDireccion.getText(), textCorreo.getText(), Integer.parseInt(textNoTelefono.getText()), textEps.getText(), textAlergias.getText(), textFechaNacimiento.getText(), textEstadoCivil.getText());
-					textIDClientes.setText("");
-					textTipoDocumento.setText("");
-					textNoDocumento.setText("");
-					textNombres.setText("");
-					textApellidos.setText("");
-					textDireccion.setText("");
-					textCorreo.setText("");
-					textNoTelefono.setText("");
-					textEps.setText("");
-					textAlergias.setText("");
-					textFechaNacimiento.setText("");
-					textEstadoCivil.setText("");
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textIDClientes.setText("");
+				textTipoDocumento.setText("");
+				textNoDocumento.setText("");
+				textNombres.setText("");
+				textApellidos.setText("");
+				textDireccion.setText("");
+				textCorreo.setText("");
+				textNoTelefono.setText("");
+				textEps.setText("");
+				textAlergias.setText("");
+				textFechaNacimiento.setText("");
+				textEstadoCivil.setText("");
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));

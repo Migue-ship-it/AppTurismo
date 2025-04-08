@@ -77,7 +77,7 @@ public class FrAccesoPromotor extends JFrame {
 				textDocumento.setText("");
 				passwordField.setText("");
 			} catch (Exception erroringresodatos) {
-				JOptionPane.showMessageDialog(null, "ingrese datos");
+				JOptionPane.showMessageDialog(null, "ingrese correctamente los datos");
 			}
 			}
 		});
