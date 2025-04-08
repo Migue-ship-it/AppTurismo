@@ -9,7 +9,6 @@ public class Conexion {
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_sectorturismo", "root", "2556229");
 			System.out.println("Conectado a la base de datos");
 		} catch (SQLException noconexion) {
-			// TODO: handle exception
 			System.out.println("Error: "+noconexion.getMessage());//muestra del error a la BD
 		}
 		return connection; //retorna la conexion estando o no abierta en la BD
