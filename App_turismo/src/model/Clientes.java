@@ -26,7 +26,7 @@ public class Clientes {
 	
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
-	PreparedStatement pst = null;
+	PreparedStatement pst = null; //preparar la transaccion
 	
 	public Conexion getConector() {
 		return conector;
@@ -176,6 +176,7 @@ public class Clientes {
 				alergias.setText(rs.getString(10));
 				fechanacimiento.setText(rs.getString(11));
 				estadocivil.setText(rs.getString(12));
+				JOptionPane.showMessageDialog(null, "Lectura de registro del ID # " +idclientes + " finalizada");
 			}
 			}
 			else {

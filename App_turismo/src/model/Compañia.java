@@ -19,7 +19,7 @@ public class Compañia {
 	public String web;
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
-	PreparedStatement pst = null;
+	PreparedStatement pst = null; //preparar la transaccion
 	
 	public Conexion getConector() {
 		return conector;
@@ -127,6 +127,7 @@ public class Compañia {
 				razonsocial.setText(rs.getString(5));
 				correo.setText(rs.getString(6));
 				web.setText(rs.getString(7));
+				JOptionPane.showMessageDialog(null, "Lectura de registro del ID # " +idcompañia + " finalizada");
 			}
 			}
 			else {

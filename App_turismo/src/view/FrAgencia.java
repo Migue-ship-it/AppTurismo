@@ -83,27 +83,27 @@ public class FrAgencia extends JFrame {
 		
 		textNombre = new JTextField();
 		textNombre.setColumns(10);
-		textNombre.setBounds(94, 81, 171, 20);
+		textNombre.setBounds(94, 81, 251, 20);
 		agenciaPane.add(textNombre);
 		
 		textTelefono = new JTextField();
 		textTelefono.setColumns(10);
-		textTelefono.setBounds(94, 111, 171, 20);
+		textTelefono.setBounds(94, 111, 251, 20);
 		agenciaPane.add(textTelefono);
 		
 		textDireccion = new JTextField();
 		textDireccion.setColumns(10);
-		textDireccion.setBounds(94, 147, 171, 20);
+		textDireccion.setBounds(94, 147, 251, 20);
 		agenciaPane.add(textDireccion);
 		
 		textWeb = new JTextField();
 		textWeb.setColumns(10);
-		textWeb.setBounds(94, 178, 171, 20);
+		textWeb.setBounds(94, 178, 251, 20);
 		agenciaPane.add(textWeb);
 		
 		textCorreo = new JTextField();
 		textCorreo.setColumns(10);
-		textCorreo.setBounds(94, 209, 171, 20);
+		textCorreo.setBounds(94, 209, 251, 20);
 		agenciaPane.add(textCorreo);
 		
 		JButton btnGuardar = new JButton("");
@@ -113,7 +113,7 @@ public class FrAgencia extends JFrame {
 			public void actionPerformed(ActionEvent evento) {
 				try {
 					cr.create(textNombre.getText(), Integer.parseInt(textTelefono.getText()), textDireccion.getText(), textWeb.getText(), textCorreo.getText(), Integer.parseInt(textidCompañia.getText()));
-				} catch (Exception e) {
+				} catch (Exception erroringresodatos) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
 				textNombre.setText("");
@@ -124,7 +124,7 @@ public class FrAgencia extends JFrame {
 				textidCompañia.setText("");
 				}
 		});
-		btnGuardar.setBounds(312, 205, 57, 50);
+		btnGuardar.setBounds(355, 205, 57, 50);
 		agenciaPane.add(btnGuardar);
 		
 		lblAgencia = new JLabel("DATOS AGENCIA");
@@ -137,7 +137,7 @@ public class FrAgencia extends JFrame {
 		
 		textidCompañia = new JTextField();
 		textidCompañia.setColumns(10);
-		textidCompañia.setBounds(94, 248, 171, 20);
+		textidCompañia.setBounds(94, 248, 251, 20);
 		agenciaPane.add(textidCompañia);
 		
 		JButton btnBorrar = new JButton("");
@@ -145,14 +145,14 @@ public class FrAgencia extends JFrame {
 			public void actionPerformed(ActionEvent evento) {
 				try {
 					cr.delete(Integer.parseInt(textidAgencia.getText()));
-				} catch (Exception e) {
+				} catch (Exception erroringresodatos) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
 				textidAgencia.setText("");
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
-		btnBorrar.setBounds(397, 205, 42, 50);
+		btnBorrar.setBounds(422, 205, 46, 50);
 		agenciaPane.add(btnBorrar);
 		
 		JLabel lblidAgencia = new JLabel("idagencia");
@@ -161,7 +161,7 @@ public class FrAgencia extends JFrame {
 		
 		textidAgencia = new JTextField();
 		textidAgencia.setColumns(10);
-		textidAgencia.setBounds(94, 46, 171, 20);
+		textidAgencia.setBounds(94, 46, 251, 20);
 		agenciaPane.add(textidAgencia);
 		
 		JButton btnRead = new JButton("");
@@ -169,13 +169,13 @@ public class FrAgencia extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					cr.read(Integer.parseInt(textidAgencia.getText()), textNombre, textTelefono, textDireccion, textWeb, textCorreo, textidCompañia);
-				} catch (Exception e2) {
+				} catch (Exception erroringresodatos) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
 			}
 		});
 		btnRead.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
-		btnRead.setBounds(312, 147, 57, 50);
+		btnRead.setBounds(355, 145, 57, 50);
 		agenciaPane.add(btnRead);
 		
 		JButton btnUpdate = new JButton("");
@@ -183,7 +183,7 @@ public class FrAgencia extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					cr.update(Integer.parseInt(textidAgencia.getText()), textNombre.getText(), Integer.parseInt(textTelefono.getText()), textDireccion.getText(), textWeb.getText(), textCorreo.getText(), Integer.parseInt(textidCompañia.getText()));
-				} catch (Exception e2) {
+				} catch (Exception erroringresodatos) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
 				textidAgencia.setText("");
@@ -196,7 +196,7 @@ public class FrAgencia extends JFrame {
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
-		btnUpdate.setBounds(387, 146, 52, 50);
+		btnUpdate.setBounds(422, 145, 46, 50);
 		agenciaPane.add(btnUpdate);
 	}
 }

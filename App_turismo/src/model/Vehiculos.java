@@ -20,7 +20,7 @@ public class Vehiculos {
 	public int idtipo;
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
-	PreparedStatement pst = null;
+	PreparedStatement pst = null; //preparar la transaccion
 	
 	public Conexion getConector() {
 		return conector;
@@ -135,6 +135,7 @@ public class Vehiculos {
 				motores.setText(rs.getString(6));
 				categoria.setText(rs.getString(7));
 				idtipovehiculo.setText(rs.getString(8));
+				JOptionPane.showMessageDialog(null, "Lectura de registro del ID # " +idvehiculo + " finalizada");
 			}
 			}
 			else {

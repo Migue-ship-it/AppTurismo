@@ -19,7 +19,7 @@ public class Agencia {
 	public int idcompañia;
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
-	PreparedStatement pst = null;
+	PreparedStatement pst = null; //preparar la transaccion
 
 	public Conexion getConector() {
 		return conector;

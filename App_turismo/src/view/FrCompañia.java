@@ -54,7 +54,7 @@ public class FrCompañia extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\211875_plane_icon.png"));
 		setTitle("COMPAÑIA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 466, 335);
+		setBounds(100, 100, 572, 335);
 		CompañiaPane = new JPanel();
 		CompañiaPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -78,7 +78,7 @@ public class FrCompañia extends JFrame {
 			textWeb.setText("");
 			}
 		});
-		btnGuardar.setBounds(247, 160, 65, 51);
+		btnGuardar.setBounds(406, 160, 65, 51);
 		CompañiaPane.add(btnGuardar);
 		
 		JLabel lblTelefono = new JLabel("telefono");
@@ -107,32 +107,32 @@ public class FrCompañia extends JFrame {
 		
 		textTelefono = new JTextField();
 		textTelefono.setColumns(10);
-		textTelefono.setBounds(132, 81, 86, 20);
+		textTelefono.setBounds(132, 81, 264, 20);
 		CompañiaPane.add(textTelefono);
 		
 		textDireccion = new JTextField();
 		textDireccion.setColumns(10);
-		textDireccion.setBounds(132, 109, 86, 20);
+		textDireccion.setBounds(132, 109, 264, 20);
 		CompañiaPane.add(textDireccion);
 		
 		textFechaDeCreacion = new JTextField();
 		textFechaDeCreacion.setColumns(10);
-		textFechaDeCreacion.setBounds(132, 137, 86, 20);
+		textFechaDeCreacion.setBounds(132, 137, 264, 20);
 		CompañiaPane.add(textFechaDeCreacion);
 		
 		textRazonSocial = new JTextField();
 		textRazonSocial.setColumns(10);
-		textRazonSocial.setBounds(132, 173, 86, 20);
+		textRazonSocial.setBounds(132, 173, 264, 20);
 		CompañiaPane.add(textRazonSocial);
 		
 		textCorreo = new JTextField();
 		textCorreo.setColumns(10);
-		textCorreo.setBounds(132, 204, 86, 20);
+		textCorreo.setBounds(132, 204, 264, 20);
 		CompañiaPane.add(textCorreo);
 		
 		textWeb = new JTextField();
 		textWeb.setColumns(10);
-		textWeb.setBounds(132, 237, 86, 20);
+		textWeb.setBounds(132, 237, 264, 20);
 		CompañiaPane.add(textWeb);
 		
 		JLabel lblCompañia = new JLabel("DATOS COMPAÑIA");
@@ -151,7 +151,7 @@ public class FrCompañia extends JFrame {
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
-		btnBorrar.setBounds(322, 160, 65, 51);
+		btnBorrar.setBounds(481, 160, 65, 51);
 		CompañiaPane.add(btnBorrar);
 		
 		JLabel lblidCompañia = new JLabel("ID Compañia");
@@ -160,7 +160,7 @@ public class FrCompañia extends JFrame {
 		
 		textIDCompañia = new JTextField();
 		textIDCompañia.setColumns(10);
-		textIDCompañia.setBounds(132, 49, 86, 20);
+		textIDCompañia.setBounds(132, 49, 264, 20);
 		CompañiaPane.add(textIDCompañia);
 		
 		JButton btnGuardar_1 = new JButton("");
@@ -174,7 +174,7 @@ public class FrCompañia extends JFrame {
 			}
 		});
 		btnGuardar_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
-		btnGuardar_1.setBounds(247, 222, 65, 51);
+		btnGuardar_1.setBounds(406, 222, 65, 51);
 		CompañiaPane.add(btnGuardar_1);
 		
 		JButton btnUpdate = new JButton("");
@@ -195,7 +195,7 @@ public class FrCompañia extends JFrame {
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
-		btnUpdate.setBounds(322, 223, 65, 50);
+		btnUpdate.setBounds(481, 223, 65, 50);
 		CompañiaPane.add(btnUpdate);
 	}
 }

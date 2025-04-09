@@ -27,7 +27,7 @@ public class Paquetes {
 
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
-	PreparedStatement pst = null;
+	PreparedStatement pst = null; //preparar la transaccion
 	
 	public Conexion getConector() {
 		return conector;
@@ -193,6 +193,7 @@ public class Paquetes {
 				idvehiculo.setText(rs.getString(12));
 				idclientes.setText(rs.getString(13));
 				idpromotor.setText(rs.getString(14));
+				JOptionPane.showMessageDialog(null, "Lectura de registro del ID # " +idpaquete + " finalizada");
 			}
 			}
 			else {

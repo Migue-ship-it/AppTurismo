@@ -16,7 +16,7 @@ public class TiposTransporte {
 	public String observacion;
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
-	PreparedStatement pst = null;
+	PreparedStatement pst = null; //preparar la transaccion
 	
 	public Conexion getConector() {
 		return conector;
@@ -92,6 +92,7 @@ public class TiposTransporte {
 			while (rs.next()) {
 				nombre.setText(rs.getString(2));
 				observacion.setText(rs.getString(3));
+				JOptionPane.showMessageDialog(null, "Lectura de registro del ID # " +idtipo + " finalizada");
 			}
 			}
 			else {

@@ -1,8 +1,8 @@
 package model;
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -57,7 +57,7 @@ public class TiposMedio {
 			else {
 				JOptionPane.showMessageDialog(null, "No se creo ningun registro");
 			}
-		} catch (SQLException errorconexion) {
+		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
 	}
@@ -91,6 +91,7 @@ public class TiposMedio {
 			while (rs.next()) {
 				nombre.setText(rs.getString(2));
 				observacion.setText(rs.getString(3));
+				JOptionPane.showMessageDialog(null, "Lectura de registro del ID # " +idtipo + " finalizada");
 			}
 			}
 			else {

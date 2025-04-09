@@ -49,7 +49,7 @@ public class FrMedio extends JFrame {
 		setTitle("MEDIO DE COMUNICACION");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\9004661_envelope_mail_email_letter_icon.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 499, 362);
+		setBounds(100, 100, 1275, 303);
 		MedioPane = new JPanel();
 		MedioPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -70,7 +70,7 @@ public class FrMedio extends JFrame {
 				textIDTipo.setText("");
 			}
 		});
-		btnGuardar.setBounds(158, 246, 56, 52);
+		btnGuardar.setBounds(181, 207, 56, 52);
 		MedioPane.add(btnGuardar);
 		
 		JLabel lblNombre = new JLabel("Nombre");
@@ -83,12 +83,12 @@ public class FrMedio extends JFrame {
 		
 		textNombre = new JTextField();
 		textNombre.setColumns(10);
-		textNombre.setBounds(181, 74, 228, 20);
+		textNombre.setBounds(181, 74, 188, 20);
 		MedioPane.add(textNombre);
 		
 		textObservacion = new JTextField();
 		textObservacion.setColumns(10);
-		textObservacion.setBounds(181, 105, 228, 90);
+		textObservacion.setBounds(181, 105, 1053, 34);
 		MedioPane.add(textObservacion);
 		
 		JLabel lblMedio = new JLabel("DATOS MEDIO");
@@ -96,12 +96,12 @@ public class FrMedio extends JFrame {
 		MedioPane.add(lblMedio);
 		
 		JLabel lblidTipo = new JLabel("ID Tipo del medio");
-		lblidTipo.setBounds(25, 209, 87, 14);
+		lblidTipo.setBounds(25, 164, 87, 14);
 		MedioPane.add(lblidTipo);
 		
 		textIDTipo = new JTextField();
 		textIDTipo.setColumns(10);
-		textIDTipo.setBounds(181, 206, 228, 20);
+		textIDTipo.setBounds(181, 161, 188, 20);
 		MedioPane.add(textIDTipo);
 		
 		JButton btnBorrar = new JButton("");
@@ -116,7 +116,7 @@ public class FrMedio extends JFrame {
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
-		btnBorrar.setBounds(224, 246, 56, 52);
+		btnBorrar.setBounds(247, 207, 56, 52);
 		MedioPane.add(btnBorrar);
 		
 		JLabel lblidMedio = new JLabel("ID Medio");
@@ -125,7 +125,7 @@ public class FrMedio extends JFrame {
 		
 		textIDMedio = new JTextField();
 		textIDMedio.setColumns(10);
-		textIDMedio.setBounds(181, 36, 228, 20);
+		textIDMedio.setBounds(181, 36, 188, 20);
 		MedioPane.add(textIDMedio);
 		
 		JButton btnBuscar = new JButton("");
@@ -139,7 +139,7 @@ public class FrMedio extends JFrame {
 				}
 		});
 		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
-		btnBuscar.setBounds(290, 246, 56, 52);
+		btnBuscar.setBounds(313, 207, 56, 52);
 		MedioPane.add(btnBuscar);
 		
 		JButton btnUpdate = new JButton("");
@@ -157,7 +157,7 @@ public class FrMedio extends JFrame {
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
-		btnUpdate.setBounds(356, 246, 52, 50);
+		btnUpdate.setBounds(379, 209, 52, 50);
 		MedioPane.add(btnUpdate);
 	}
 }

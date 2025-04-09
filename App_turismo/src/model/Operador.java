@@ -21,7 +21,7 @@ public class Operador {
 	public int idvehiculo;
 	Conexion conector = new Conexion();
 	Connection conexionBD = null;
-	PreparedStatement pst = null;
+	PreparedStatement pst = null; //preparar la transaccion
 	
 	public String getNombres() {
 		return nombres;
@@ -118,7 +118,7 @@ public class Operador {
 			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar el registro perteneciente al id # "+ idoperador + " ?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showMessageDialog(null, "fila eliminada");
+				JOptionPane.showMessageDialog(null, "ID " + idoperador + " eliminada");
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "No se borro ningun registro");
@@ -145,6 +145,7 @@ public class Operador {
 				documento.setText(rs.getString(7));
 				direccion.setText(rs.getString(8));
 				idvehiculo.setText(rs.getString(9));
+				JOptionPane.showMessageDialog(null, "Lectura de registro del ID # " +idoperador + " finalizada");
 			}
 			}
 			else {

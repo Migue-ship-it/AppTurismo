@@ -59,7 +59,7 @@ public class FrOperador extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\7791667_necktie_businessman_suit_manager_employee_icon.png"));
 		setTitle("OPERADOR TURISTICO");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 319);
+		setBounds(100, 100, 551, 319);
 		operadorPane = new JPanel();
 		operadorPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -86,7 +86,7 @@ public class FrOperador extends JFrame {
 				textIDVehiculo.setText("");
 			}
 		});
-		btnGuardar.setBounds(274, 153, 65, 49);
+		btnGuardar.setBounds(364, 153, 65, 49);
 		operadorPane.add(btnGuardar);
 		
 		JLabel lblNombres = new JLabel("nombres");
@@ -110,59 +110,59 @@ public class FrOperador extends JFrame {
 		operadorPane.add(lblTipoDeDocumento);
 		
 		JLabel lblNoDocumento = new JLabel("No. documento");
-		lblNoDocumento.setBounds(234, 61, 96, 14);
+		lblNoDocumento.setBounds(264, 61, 86, 14);
 		operadorPane.add(lblNoDocumento);
 		
 		textNombres = new JTextField();
 		textNombres.setColumns(10);
-		textNombres.setBounds(138, 89, 86, 20);
+		textNombres.setBounds(138, 89, 116, 20);
 		operadorPane.add(textNombres);
 		
 		textApellidos = new JTextField();
 		textApellidos.setColumns(10);
-		textApellidos.setBounds(138, 122, 86, 20);
+		textApellidos.setBounds(138, 122, 116, 20);
 		operadorPane.add(textApellidos);
 		
 		textCorreo = new JTextField();
 		textCorreo.setColumns(10);
-		textCorreo.setBounds(138, 153, 86, 20);
+		textCorreo.setBounds(138, 153, 160, 20);
 		operadorPane.add(textCorreo);
 		
 		textNoTelefono = new JTextField();
 		textNoTelefono.setColumns(10);
-		textNoTelefono.setBounds(138, 185, 86, 20);
+		textNoTelefono.setBounds(138, 185, 116, 20);
 		operadorPane.add(textNoTelefono);
 		
 		textTipoDocumento = new JTextField();
 		textTipoDocumento.setColumns(10);
-		textTipoDocumento.setBounds(138, 210, 86, 20);
+		textTipoDocumento.setBounds(138, 210, 116, 20);
 		operadorPane.add(textTipoDocumento);
 		
 		textNoDocumento = new JTextField();
 		textNoDocumento.setColumns(10);
-		textNoDocumento.setBounds(328, 58, 86, 20);
+		textNoDocumento.setBounds(360, 58, 86, 20);
 		operadorPane.add(textNoDocumento);
 		
 		JLabel lblDireccion = new JLabel("direccion");
-		lblDireccion.setBounds(234, 92, 74, 14);
+		lblDireccion.setBounds(264, 92, 74, 14);
 		operadorPane.add(lblDireccion);
 		
 		textDireccion = new JTextField();
-		textDireccion.setBounds(328, 89, 86, 20);
+		textDireccion.setBounds(360, 89, 161, 20);
 		operadorPane.add(textDireccion);
 		textDireccion.setColumns(10);
 		
 		lblOperador = new JLabel("DATOS OPERADOR");
-		lblOperador.setBounds(175, 23, 123, 14);
+		lblOperador.setBounds(200, 22, 123, 14);
 		operadorPane.add(lblOperador);
 		
 		JLabel lblidVehiculo = new JLabel("ID Vehiculo");
-		lblidVehiculo.setBounds(234, 122, 86, 14);
+		lblidVehiculo.setBounds(264, 125, 86, 14);
 		operadorPane.add(lblidVehiculo);
 		
 		textIDVehiculo = new JTextField();
 		textIDVehiculo.setColumns(10);
-		textIDVehiculo.setBounds(328, 122, 86, 20);
+		textIDVehiculo.setBounds(360, 122, 86, 20);
 		operadorPane.add(textIDVehiculo);
 		
 		btnBorrar = new JButton("");
@@ -177,12 +177,12 @@ public class FrOperador extends JFrame {
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
-		btnBorrar.setBounds(349, 153, 65, 49);
+		btnBorrar.setBounds(439, 153, 65, 49);
 		operadorPane.add(btnBorrar);
 		
 		textIDOperador = new JTextField();
 		textIDOperador.setColumns(10);
-		textIDOperador.setBounds(138, 58, 86, 20);
+		textIDOperador.setBounds(138, 58, 116, 20);
 		operadorPane.add(textIDOperador);
 		
 		lblidOperador = new JLabel("ID del operador");
@@ -200,7 +200,7 @@ public class FrOperador extends JFrame {
 			}
 		});
 		btnBuscar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
-		btnBuscar.setBounds(274, 212, 65, 49);
+		btnBuscar.setBounds(364, 212, 65, 49);
 		operadorPane.add(btnBuscar);
 		
 		btnUpdate = new JButton("");
@@ -224,7 +224,7 @@ public class FrOperador extends JFrame {
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
-		btnUpdate.setBounds(349, 209, 65, 50);
+		btnUpdate.setBounds(439, 211, 65, 50);
 		operadorPane.add(btnUpdate);
 	}
 }

@@ -3,7 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 public class Conexion {
-	public Connection conectarBD(){
+	public Connection conectarBD(){ //metodo con el objeto connection
 		Connection connection = null; //cierre de la conexion por defecto
 		try {//String de conexion definiendo los parametros de conexion para conectar con la BD
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_sectorturismo", "root", "2556229");

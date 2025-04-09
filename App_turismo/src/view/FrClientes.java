@@ -59,7 +59,7 @@ public class FrClientes extends JFrame {
 		setTitle("CLIENTES");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\309035_user_account_human_person_icon.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 550, 324);
+		setBounds(100, 100, 607, 324);
 		ClientesPane = new JPanel();
 		ClientesPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -95,24 +95,24 @@ public class FrClientes extends JFrame {
 		ClientesPane.add(lblNoTelefono);
 		
 		JLabel lblEps = new JLabel("E.P.S");
-		lblEps.setBounds(229, 61, 46, 14);
+		lblEps.setBounds(256, 61, 46, 14);
 		ClientesPane.add(lblEps);
 		
 		JLabel lblAlergias = new JLabel("alergias");
-		lblAlergias.setBounds(229, 89, 46, 14);
+		lblAlergias.setBounds(256, 89, 46, 14);
 		ClientesPane.add(lblAlergias);
 		
 		JLabel lblFechaDeNacimiento = new JLabel("fecha de nacimiento");
-		lblFechaDeNacimiento.setBounds(224, 114, 123, 14);
+		lblFechaDeNacimiento.setBounds(253, 114, 123, 14);
 		ClientesPane.add(lblFechaDeNacimiento);
 		
 		JLabel lblEstadoCivil = new JLabel("estado civil");
-		lblEstadoCivil.setBounds(229, 145, 73, 14);
+		lblEstadoCivil.setBounds(253, 145, 73, 14);
 		ClientesPane.add(lblEstadoCivil);
 		
 		textNoDocumento = new JTextField();
 		textNoDocumento.setColumns(10);
-		textNoDocumento.setBounds(130, 111, 86, 20);
+		textNoDocumento.setBounds(130, 111, 113, 20);
 		ClientesPane.add(textNoDocumento);
 		
 		JButton btnGuardar = new JButton("");
@@ -122,7 +122,7 @@ public class FrClientes extends JFrame {
 			try {
 				cr.create(textTipoDocumento.getText(), Integer.parseInt(textNoDocumento.getText()), textNombres.getText(), textApellidos.getText(), textDireccion.getText(), 
 				textCorreo.getText(), Integer.parseInt(textNoTelefono.getText()), textEps.getText(), textAlergias.getText(), textFechaNacimiento.getText(), textEstadoCivil.getText());
-			} catch (Exception e2) {
+			} catch (Exception erroringresodatos) {
 				JOptionPane.showMessageDialog(null, "ingrese datos");
 			}
 			textTipoDocumento.setText("");
@@ -138,47 +138,47 @@ public class FrClientes extends JFrame {
 			textEstadoCivil.setText("");
 			}
 		});
-		btnGuardar.setBounds(229, 178, 58, 63);
+		btnGuardar.setBounds(461, 145, 58, 63);
 		ClientesPane.add(btnGuardar);
 		
 		textNombres = new JTextField();
 		textNombres.setColumns(10);
-		textNombres.setBounds(130, 142, 86, 20);
+		textNombres.setBounds(130, 142, 113, 20);
 		ClientesPane.add(textNombres);
 		
 		textApellidos = new JTextField();
 		textApellidos.setColumns(10);
-		textApellidos.setBounds(130, 175, 86, 20);
+		textApellidos.setBounds(130, 175, 172, 20);
 		ClientesPane.add(textApellidos);
 		
 		textDireccion = new JTextField();
 		textDireccion.setColumns(10);
-		textDireccion.setBounds(131, 206, 86, 20);
+		textDireccion.setBounds(131, 206, 171, 20);
 		ClientesPane.add(textDireccion);
 		
 		textCorreo = new JTextField();
 		textCorreo.setColumns(10);
-		textCorreo.setBounds(130, 234, 86, 20);
+		textCorreo.setBounds(130, 234, 172, 20);
 		ClientesPane.add(textCorreo);
 		
 		textNoTelefono = new JTextField();
 		textNoTelefono.setColumns(10);
-		textNoTelefono.setBounds(130, 261, 86, 20);
+		textNoTelefono.setBounds(130, 261, 172, 20);
 		ClientesPane.add(textNoTelefono);
 		
 		textEstadoCivil = new JTextField();
 		textEstadoCivil.setColumns(10);
-		textEstadoCivil.setBounds(299, 142, 123, 20);
+		textEstadoCivil.setBounds(328, 142, 123, 20);
 		ClientesPane.add(textEstadoCivil);
 		
 		textFechaNacimiento = new JTextField();
 		textFechaNacimiento.setColumns(10);
-		textFechaNacimiento.setBounds(353, 111, 69, 20);
+		textFechaNacimiento.setBounds(382, 111, 69, 20);
 		ClientesPane.add(textFechaNacimiento);
 		
 		textAlergias = new JTextField();
 		textAlergias.setColumns(10);
-		textAlergias.setBounds(296, 86, 126, 20);
+		textAlergias.setBounds(325, 86, 126, 20);
 		ClientesPane.add(textAlergias);
 		
 		JLabel lblClientes = new JLabel("DATOS CLIENTES");
@@ -186,12 +186,12 @@ public class FrClientes extends JFrame {
 		ClientesPane.add(lblClientes);
 		
 		textEps = new JTextField();
-		textEps.setBounds(296, 58, 126, 20);
+		textEps.setBounds(325, 58, 126, 20);
 		ClientesPane.add(textEps);
 		textEps.setColumns(10);
 		
 		textTipoDocumento = new JTextField();
-		textTipoDocumento.setBounds(130, 86, 86, 20);
+		textTipoDocumento.setBounds(130, 86, 116, 20);
 		ClientesPane.add(textTipoDocumento);
 		textTipoDocumento.setColumns(10);
 		
@@ -207,7 +207,7 @@ public class FrClientes extends JFrame {
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
-		btnBorrar.setBounds(297, 178, 58, 63);
+		btnBorrar.setBounds(461, 214, 58, 63);
 		ClientesPane.add(btnBorrar);
 		
 		JLabel lblidClientes = new JLabel("ID Cliente");
@@ -216,7 +216,7 @@ public class FrClientes extends JFrame {
 		
 		textIDClientes = new JTextField();
 		textIDClientes.setColumns(10);
-		textIDClientes.setBounds(130, 59, 86, 20);
+		textIDClientes.setBounds(130, 59, 116, 20);
 		ClientesPane.add(textIDClientes);
 		
 		JButton btnRead = new JButton("");
@@ -230,7 +230,7 @@ public class FrClientes extends JFrame {
 			}
 		});
 		btnRead.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\5402443_search_find_magnifier_magnifying_magnifying glass_icon.png"));
-		btnRead.setBounds(365, 178, 58, 63);
+		btnRead.setBounds(523, 145, 58, 63);
 		ClientesPane.add(btnRead);
 		
 		JButton btnUpdate = new JButton("");
@@ -256,7 +256,7 @@ public class FrClientes extends JFrame {
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));
-		btnUpdate.setBounds(433, 184, 52, 57);
+		btnUpdate.setBounds(523, 214, 52, 64);
 		ClientesPane.add(btnUpdate);
 	}
 }

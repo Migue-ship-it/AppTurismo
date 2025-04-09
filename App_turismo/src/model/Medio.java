@@ -101,6 +101,7 @@ public class Medio {
 				nombre.setText(rs.getString(2));
 				observacion.setText(rs.getString(3));
 				idtipomedio.setText(rs.getString(4));
+				JOptionPane.showMessageDialog(null, "Lectura de registro del ID # " +idmedio + " finalizada");
 			}
 			}
 			else {

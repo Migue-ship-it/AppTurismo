@@ -4,6 +4,7 @@ import java.sql.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -170,6 +171,7 @@ public class Promotor {
 				correocorp.setText(rs.getString(8));
 				direccion.setText(rs.getString(9));
 				fechanacimiento.setText(rs.getString(10));
+				JOptionPane.showMessageDialog(null, "Lectura de registro del ID # " +idpromotor + " finalizada");
 			}
 			}
 			else {
@@ -214,11 +216,14 @@ public class Promotor {
 			pst.setInt(1, user);
 			pst.setString(2, password);
 			ResultSet rs = pst.executeQuery();
-			while (rs.next()) {
+			if (rs.next()) {
 				principal.setVisible(true);
 				JOptionPane.showMessageDialog(null, "Acceso permitido");
 			}
-		} catch (Exception errorcontrolacceso) {
+			else {
+				JOptionPane.showMessageDialog(null, "No se registro correctamente al control de acceso");
+			}	
+		} catch (SQLException errorcontrolacceso) {
 			System.out.println(errorcontrolacceso.getMessage());
 		}
 	}
