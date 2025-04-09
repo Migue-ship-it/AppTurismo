@@ -120,8 +120,14 @@ public class Promotor {
 			pst.setString(7, correocorp);
 			pst.setString(8, direccion);
 			pst.setString(9, fechanacimiento);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea crear un nuevo registro?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Registro con exito");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se creo ningun registro");
+			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -132,10 +138,13 @@ public class Promotor {
 			conexionBD = conector.conectarBD();
 			pst = conexionBD.prepareStatement(script);
 			pst.setInt(1, idpromotor);
-			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar el registro perteneciente al id # "+ idpromotor + " ?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showMessageDialog(null, "fila eliminada");
+				JOptionPane.showMessageDialog(null, "ID " + idpromotor + " eliminada");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se borro ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -149,6 +158,8 @@ public class Promotor {
 			pst = conexionBD.prepareStatement(script);
 			pst.setInt(1, idpromotor);
 			ResultSet rs = pst.executeQuery(); //almacenamiento temporal
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea leer el registro perteneciente al id # "+idpromotor +" ?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
 			while (rs.next()) {
 				nombres.setText(rs.getString(2));
 				apellidos.setText(rs.getString(3));
@@ -159,6 +170,10 @@ public class Promotor {
 				correocorp.setText(rs.getString(8));
 				direccion.setText(rs.getString(9));
 				fechanacimiento.setText(rs.getString(10));
+			}
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se leyo ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -183,6 +198,9 @@ public class Promotor {
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "ID "+ idpromotor +" actualizado");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se modifico ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());

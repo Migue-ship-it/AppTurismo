@@ -72,18 +72,17 @@ public class FrVehiculos extends JFrame {
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
 				try {
-					cr.datosVehiculos(textMatricula.getText(), textMarca.getText(), Integer.parseInt(textPuestos.getText()), textModelo.getText(), Integer.parseInt(textNoMotor.getText()),
-							textCategoria.getText(), Integer.parseInt(textIDTipoVehiculo.getText()));
-							textMatricula.setText("");
-							textMarca.setText("");
-							textPuestos.setText("");
-							textModelo.setText("");
-							textNoMotor.setText("");
-							textCategoria.setText("");
-							textIDTipoVehiculo.setText("");
+					cr.datosVehiculos(textMatricula.getText(), textMarca.getText(), Integer.parseInt(textPuestos.getText()), textModelo.getText(), Integer.parseInt(textNoMotor.getText()), textCategoria.getText(), Integer.parseInt(textIDTipoVehiculo.getText()));
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textMatricula.setText("");
+				textMarca.setText("");
+				textPuestos.setText("");
+				textModelo.setText("");
+				textNoMotor.setText("");
+				textCategoria.setText("");
+				textIDTipoVehiculo.setText("");
 			}
 		});
 		btnGuardar.setBounds(181, 303, 65, 49);
@@ -161,10 +160,10 @@ public class FrVehiculos extends JFrame {
 			public void actionPerformed(ActionEvent evento) {
 				try {
 					cr.delete(Integer.parseInt(textIDVehiculo.getText()));
-					textIDVehiculo.setText("");
-				} catch (Exception e) {
+					} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textIDVehiculo.setText("");
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
@@ -199,18 +198,18 @@ public class FrVehiculos extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					cr.update(Integer.parseInt(textIDVehiculo.getText()),textMatricula.getText(), textMarca.getText(), Integer.parseInt(textPuestos.getText()), textModelo.getText(), Integer.parseInt(textNoMotor.getText()),
-							textCategoria.getText(), Integer.parseInt(textIDTipoVehiculo.getText()));
-							textIDVehiculo.setText("");
-							textMatricula.setText("");
-							textMarca.setText("");
-							textPuestos.setText("");
-							textModelo.setText("");
-							textNoMotor.setText("");
-							textCategoria.setText("");
-							textIDTipoVehiculo.setText("");
+					textCategoria.getText(), Integer.parseInt(textIDTipoVehiculo.getText()));
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textIDVehiculo.setText("");
+				textMatricula.setText("");
+				textMarca.setText("");
+				textPuestos.setText("");
+				textModelo.setText("");
+				textNoMotor.setText("");
+				textCategoria.setText("");
+				textIDTipoVehiculo.setText("");
 			}
 		});
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));

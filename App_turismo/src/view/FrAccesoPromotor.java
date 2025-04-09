@@ -74,11 +74,11 @@ public class FrAccesoPromotor extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			try {
 				cr.controlacceso(Integer.parseInt(textDocumento.getText()), passwordField.getText());
-				textDocumento.setText("");
-				passwordField.setText("");
 			} catch (Exception erroringresodatos) {
 				JOptionPane.showMessageDialog(null, "ingrese correctamente los datos");
 			}
+			textDocumento.setText("");
+			passwordField.setText("");
 			}
 		});
 		btnRegistrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\9104178_done_complete_accept_check_list_icon.png"));

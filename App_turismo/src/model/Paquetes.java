@@ -139,8 +139,14 @@ public class Paquetes {
 			pst.setInt(11, idvehiculo);
 			pst.setInt(12, idclientes);
 			pst.setInt(13, idpromotor);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea crear un nuevo registro?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Registro con exito");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se creo ningun registro");
+			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -151,10 +157,13 @@ public class Paquetes {
 			conexionBD = conector.conectarBD();
 			pst = conexionBD.prepareStatement(script);
 			pst.setInt(1, idpaquete);
-			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar el registro perteneciente al id # "+ idpaquete +"?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showMessageDialog(null, "fila eliminada");
+				JOptionPane.showMessageDialog(null, "ID " + idpaquete + " eliminada");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se borro ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -168,6 +177,8 @@ public class Paquetes {
 			pst = conexionBD.prepareStatement(script);
 			pst.setInt(1, idpaquete);
 			ResultSet rs = pst.executeQuery(); //almacenamiento temporal
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea leer el registro perteneciente al id # "+idpaquete +"?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
 			while (rs.next()) {
 				codigoventa.setText(rs.getString(2));
 				iddestino.setText(rs.getString(3));
@@ -182,6 +193,10 @@ public class Paquetes {
 				idvehiculo.setText(rs.getString(12));
 				idclientes.setText(rs.getString(13));
 				idpromotor.setText(rs.getString(14));
+			}
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se leyo ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -211,6 +226,9 @@ public class Paquetes {
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "ID "+ idpaquete +" actualizado");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se modifico ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());

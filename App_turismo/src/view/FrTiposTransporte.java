@@ -61,11 +61,11 @@ public class FrTiposTransporte extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					cr.create(textNombre.getText(), textObservacion.getText());
-					textNombre.setText("");
-					textObservacion.setText("");
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textNombre.setText("");
+				textObservacion.setText("");
 			}
 		});
 		btnGuardar.setBounds(248, 236, 55, 47);
@@ -98,10 +98,10 @@ public class FrTiposTransporte extends JFrame {
 			public void actionPerformed(ActionEvent evento) {
 				try {
 					cr.delete(Integer.parseInt(textIDTipoTransporte.getText()));
-					textIDTipoTransporte.setText("");
-				} catch (Exception e) {
+					} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textIDTipoTransporte.setText("");
 			}
 		});
 		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
@@ -136,12 +136,12 @@ public class FrTiposTransporte extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					cr.update(Integer.parseInt(textIDTipoTransporte.getText()), textNombre.getText(), textObservacion.getText());
-					textIDTipoTransporte.setText("");
-					textNombre.setText("");
-					textObservacion.setText("");
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textIDTipoTransporte.setText("");
+				textNombre.setText("");
+				textObservacion.setText("");
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));

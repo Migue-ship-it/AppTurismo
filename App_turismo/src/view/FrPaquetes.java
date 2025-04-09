@@ -88,22 +88,22 @@ public class FrPaquetes extends JFrame {
 					cr.datosPaquetes(Integer.parseInt(textCodigoVenta.getText()), Integer.parseInt(textIDdestino.getText()), Integer.parseInt(textIDorigen.getText()), textFechaVenta.getText(), textHoraVenta.getText(),
 					textFechaEjecucion.getText(), textHoraSalida.getText(), textObservacion.getText(), textPrecio.getText(), Integer.parseInt(textIDAgencia.getText()),
 					Integer.parseInt(textIDVehiculo.getText()), Integer.parseInt(textIDClientes.getText()), Integer.parseInt(textIDPromotor.getText()));
-					textCodigoVenta.setText("");
-					textIDdestino.setText("");
-					textIDorigen.setText("");
-					textFechaVenta.setText("");
-					textHoraVenta.setText("");
-					textFechaEjecucion.setText("");
-					textHoraSalida.setText("");
-					textObservacion.setText("");
-					textPrecio.setText("");
-					textIDAgencia.setText("");
-					textIDVehiculo.setText("");
-					textIDClientes.setText("");
-					textIDPromotor.setText("");
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textCodigoVenta.setText("");
+				textIDdestino.setText("");
+				textIDorigen.setText("");
+				textFechaVenta.setText("");
+				textHoraVenta.setText("");
+				textFechaEjecucion.setText("");
+				textHoraSalida.setText("");
+				textObservacion.setText("");
+				textPrecio.setText("");
+				textIDAgencia.setText("");
+				textIDVehiculo.setText("");
+				textIDClientes.setText("");
+				textIDPromotor.setText("");
 			}
 		});
 		btnGuardar.setBounds(253, 257, 68, 52);
@@ -235,10 +235,10 @@ public class FrPaquetes extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					cr.delete(Integer.parseInt(textIDPaquete.getText()));
-					textIDPaquete.setText("");
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textIDPaquete.setText("");
 			}
 		});
 		btnGuardar_1
@@ -260,8 +260,8 @@ public class FrPaquetes extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					cr.read(Integer.parseInt(textIDPaquete.getText()), textCodigoVenta, textIDdestino, textIDorigen,
-							textFechaVenta, textHoraVenta, textFechaEjecucion, textHoraSalida, textObservacion,
-							textPrecio, textIDAgencia, textIDVehiculo, textIDClientes, textIDPromotor);
+					textFechaVenta, textHoraVenta, textFechaEjecucion, textHoraSalida, textObservacion,
+					textPrecio, textIDAgencia, textIDVehiculo, textIDClientes, textIDPromotor);
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
@@ -279,23 +279,23 @@ public class FrPaquetes extends JFrame {
 					cr.update(Integer.parseInt(textIDPaquete.getText()), Integer.parseInt(textCodigoVenta.getText()), Integer.parseInt(textIDdestino.getText()), Integer.parseInt(textIDorigen.getText()),
 					textFechaVenta.getText(), textHoraVenta.getText(), textFechaEjecucion.getText(), textHoraSalida.getText(), textObservacion.getText(), textPrecio.getText(),
 					Integer.parseInt(textIDAgencia.getText()), Integer.parseInt(textIDVehiculo.getText()), Integer.parseInt(textIDClientes.getText()), Integer.parseInt(textIDPromotor.getText()));
-					textIDPaquete.setText("");
-					textCodigoVenta.setText("");
-					textIDdestino.setText("");
-					textIDorigen.setText("");
-					textFechaVenta.setText("");
-					textHoraVenta.setText("");
-					textFechaEjecucion.setText("");
-					textHoraSalida.setText("");
-					textObservacion.setText("");
-					textPrecio.setText("");
-					textIDAgencia.setText("");
-					textIDVehiculo.setText("");
-					textIDClientes.setText("");
-					textIDPromotor.setText("");
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textIDPaquete.setText("");
+				textCodigoVenta.setText("");
+				textIDdestino.setText("");
+				textIDorigen.setText("");
+				textFechaVenta.setText("");
+				textHoraVenta.setText("");
+				textFechaEjecucion.setText("");
+				textHoraSalida.setText("");
+				textObservacion.setText("");
+				textPrecio.setText("");
+				textIDAgencia.setText("");
+				textIDVehiculo.setText("");
+				textIDClientes.setText("");
+				textIDPromotor.setText("");
 			}
 		});
 		btnUpdate.setIcon(

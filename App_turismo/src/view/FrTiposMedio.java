@@ -79,11 +79,11 @@ public class FrTiposMedio extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 				cr.create(textNombre.getText(), textObservacion.getText());
-				textNombre.setText("");
-				textObservacion.setText("");
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textNombre.setText("");
+				textObservacion.setText("");
 			}
 		});
 		btnGuardar.setBounds(239, 236, 68, 47);
@@ -98,10 +98,10 @@ public class FrTiposMedio extends JFrame {
 			public void actionPerformed(ActionEvent evento) {
 				try {
 					cr.delete(Integer.parseInt(textIDTipoMedio.getText()));
-					textIDTipoMedio.setText("");
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textIDTipoMedio.setText("");
 			}
 		});
 		btnGuardar_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\1564505_close_delete_exit_remove_icon.png"));
@@ -136,12 +136,12 @@ public class FrTiposMedio extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					cr.update(Integer.parseInt(textIDTipoMedio.getText()), textNombre.getText(), textObservacion.getText());
-					textIDTipoMedio.setText("");
-					textNombre.setText("");
-					textObservacion.setText("");
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "ingrese datos");
 				}
+				textIDTipoMedio.setText("");
+				textNombre.setText("");
+				textObservacion.setText("");
 			}
 		});
 		btnUpdate.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\4213447_arrow_load_loading_refresh_reload_icon.png"));

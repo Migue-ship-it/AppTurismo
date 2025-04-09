@@ -88,8 +88,14 @@ public class Vehiculos {
 			pst.setInt(5, numeromotor);
 			pst.setString(6, categoria);
 			pst.setInt(7, idtipo);
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea crear un nuevo registro?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Registro con exito");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se creo ningun registro");
+			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
 		}
@@ -100,10 +106,13 @@ public class Vehiculos {
 			conexionBD = conector.conectarBD();
 			pst = conexionBD.prepareStatement(script);
 			pst.setInt(1, idvehiculo);
-			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar esta fila?");
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea eliminar el registro perteneciente al id # "+ idvehiculo +" ?");
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
-				JOptionPane.showMessageDialog(null, "fila eliminada");
+				JOptionPane.showMessageDialog(null, "ID " + idvehiculo + " eliminada");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se borro ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -116,6 +125,8 @@ public class Vehiculos {
 			pst = conexionBD.prepareStatement(script);
 			pst.setInt(1, idvehiculo);
 			ResultSet rs = pst.executeQuery(); //almacenamiento temporal
+			int confirmacion = JOptionPane.showConfirmDialog(null, "desea leer el registro perteneciente al id # "+idvehiculo +" ?");
+			if (confirmacion==JOptionPane.OK_OPTION) {
 			while (rs.next()) {
 				matricula.setText(rs.getString(2));
 				marca.setText(rs.getString(3));
@@ -124,6 +135,10 @@ public class Vehiculos {
 				motores.setText(rs.getString(6));
 				categoria.setText(rs.getString(7));
 				idtipovehiculo.setText(rs.getString(8));
+			}
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se leyo ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
@@ -146,6 +161,9 @@ public class Vehiculos {
 			if (confirmacion==JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "ID "+ idvehiculo +" actualizado");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "No se modifico ningun registro");
 			}
 		} catch (Exception errorconexion) {
 			System.out.println(errorconexion.getMessage());
