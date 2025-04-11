@@ -221,7 +221,7 @@ public class Promotor {
 				JOptionPane.showMessageDialog(null, "Acceso permitido");
 			}
 			else {
-				JOptionPane.showMessageDialog(null, "No se registro correctamente al control de acceso");
+				JOptionPane.showMessageDialog(null, "No se registro correctamente al control de acceso"); //si el campo user es correcto a diferencia de la contraseña enviara este mensaje 
 			}	
 		} catch (SQLException errorcontrolacceso) {
 			System.out.println(errorcontrolacceso.getMessage());

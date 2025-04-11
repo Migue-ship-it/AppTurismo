@@ -73,10 +73,10 @@ public class FrAccesoPromotor extends JFrame {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 			try {
-				cr.controlacceso(Integer.parseInt(textDocumento.getText()), passwordField.getText());
+				cr.controlacceso(Integer.parseInt(textDocumento.getText()), passwordField.getText()); 
 			} catch (Exception erroringresodatos) {
-				JOptionPane.showMessageDialog(null, "ingrese correctamente los datos");
-			}
+				JOptionPane.showMessageDialog(null, "ingrese correctamente los datos"); //Se enviara este mensaje cuando no esten llenos completa o correctamente los datos necesarios
+			} //Al finalizar la excepcion quedaran en blanco los campos en el frame
 			textDocumento.setText("");
 			passwordField.setText("");
 			}
